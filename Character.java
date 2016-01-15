@@ -1,6 +1,9 @@
-public class Character{
+public abstract class Character{
     
     protected int HP ;
+    protected int MP;
+    protected int XP;
+    protected int level;
     protected int attack ;
     protected int defense ;
     protected int mana;
@@ -20,6 +23,8 @@ public class Character{
     public void changeMP(int cost){
 	MP-=cost;
     }
+
+    
 
     public boolean isDefeated(){
 	return HP<=0;
