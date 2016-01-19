@@ -1,0 +1,11 @@
+1/14 
+Character added (incomplete)
+Currency Issue
+to-do.txt added.
+
+1/19
+Worked on driver (HSD.java) // halfway done to something runnable
+Need to relearn user input related stuff
+Tasks:
+Tyg3r - on Character class and subclasses
+0c3l0t - on driver
