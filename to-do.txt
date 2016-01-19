@@ -1,8 +1,9 @@
-1/18/15 
+1/20/15 
 Have the Character class and all its subclasses written.(Figure out how exactly Characters will interact with Items)
 Make sure different characters can be instantiated.
 Make sure Character methods are working properly.
 Write the beginning of the game in the Driver class (character selection).
 
+1/21/15
 Have the Items class and all of its subclasses written.
 Make sure playable characters can have and use items.
