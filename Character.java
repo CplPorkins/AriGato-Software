@@ -39,5 +39,13 @@ public abstract class Character{
     public void setWis(int wisdom) {wis += wisdom;}
     public void setCha(int charisma) {cha += charisma;}
     public void setIntel(int intelligence) {intel += intelligence;}
-    public void setcon(int constitution) {con += constitution;}
+    public void setCon(int constitution) {con += constitution;}
+
+    //methods
+    abstract void useItem(Item x); //
+    abstract void performAttack();
+    abstract void die();
+    abstract boolean isDead();
+    abstract void levelUp();
+    
 }
