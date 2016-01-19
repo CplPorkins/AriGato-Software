@@ -12,6 +12,7 @@ public abstract class Character{
     protected int cha;
     protected int intel;
     protected int con;
+    protected String name;
 
     //accessors
     public int getHP() {return HP;}
@@ -26,6 +27,7 @@ public abstract class Character{
     public int getCha() {return cha;}
     public int getIntel() {return intel;}
     public int getCon() {return con;}
+    public String getName() {return name;}
 
     //mutators
     //REMEMBER: SET NEG VALUES TO REDUCE, POS TO INCREASE
@@ -40,6 +42,7 @@ public abstract class Character{
     public void setCha(int charisma) {cha += charisma;}
     public void setIntel(int intelligence) {intel += intelligence;}
     public void setCon(int constitution) {con += constitution;}
+    public void setName(String input) {name = input;}
 
     //methods
     abstract void useItem(Item x); //
