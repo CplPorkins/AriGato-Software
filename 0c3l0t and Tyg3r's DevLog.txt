@@ -3,7 +3,11 @@ Character added (incomplete)
 Currency Issue
 to-do.txt added.
 
+1/15
+Playable Character classes added (incomplete)
+
 1/19
+Item added
 Worked on driver (HSD.java) // halfway done to something runnable
 Need to relearn user input related stuff
 Tasks:
