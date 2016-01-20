@@ -13,6 +13,7 @@ public abstract class Character{
     protected int intel;
     protected int con;
     protected String name;
+    protected Item[][] inventory;
 
     //accessors
     public int getHP() {return HP;}
@@ -43,12 +44,14 @@ public abstract class Character{
     public void setIntel(int intelligence) {intel += intelligence;}
     public void setCon(int constitution) {con += constitution;}
     public void setName(String input) {name = input;}
-
-    //methods
-    abstract void useItem(Item x); //
-    abstract void performAttack();
-    abstract void die();
-    abstract boolean isDead();
-    abstract void levelUp();
     
+    //methods
+    public boolean isDead(){return HP<=0;};
+
+    //abstract methods
+    //abstract void useItem(Item x);
+    //abstract void performAttack();
+    //abstract void die();
+    abstract void levelUp();
+    //abstract void pickUp();
 }
