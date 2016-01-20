@@ -10,19 +10,18 @@ public class HighSchoolDungeon{
     private Prep _prep;
     private Jock _jock;
     private Nerd _nerd;
-
+    private int gameStarted; //takes 1 or 0
     private boolean gameOver;
 
     private InputStreamReader isr;
     private BufferedReader in;
 
         // ~~~~~~~~~~ DEFAULT CONSTRUCTOR ~~~~~~~~~~~
-    public YoRPG() {
-				moveCount = 0;
-				gameOver = false;
-				isr = new InputStreamReader( System.in );
-				in = new BufferedReader( isr );
-				newGame();
+    public HighSchoolDungeon() {
+	gameOver = false;
+	isr = new InputStreamReader( System.in );
+	in = new BufferedReader( isr );
+	newGame();
     }
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -39,8 +38,19 @@ public class HighSchoolDungeon{
 
 	String s;
 	String name = "";
-	s = "Welcome to Ye Olde RPG!\n";
+	s = "High School Dungeon\n";
+	s += "An everyday high school dungeon crawler\n";
+	s += "An Ari-Gato Software Production\n";
+
+	s += "\n";
+	s += "Enter 1 to continue..."; //just to test readint capability; remove later
+	try {
+	    gameStarted = Integer.parseInt(in.readLine());
+	}
+	catch (IOException e) {}
 	
+	
+	/* Will implement if time allows 
 	s += "\nChoose your difficulty: \n";
 	s += "\t1: Easy\n";
 	s += "\t2: Not so easy\n";
@@ -48,13 +58,17 @@ public class HighSchoolDungeon{
 	s += "Selection: ";
 	System.out.print( s );
 
-	try {
+	try { // IMPORTANT
 	    difficulty = Integer.parseInt( in.readLine() );
 	}
 	catch ( IOException e ) { }
-	
-	
-	s = "Intrepid warrior, what doth thy call thyself? (State your name): ";
+	*/
+
+	s = "Congratulations on getting into a prestigious NYC public high school!\n"; //add flavor text later
+	s += "Blah, blah, blah, exposition and introductions\n";
+	s += "'Alright, everyone.' the teacher says. 'Introduce yourself!'\n";
+	s += "What's your name?\n";
+	s += "Name:"
 	System.out.print( s );
 	
 	try {
@@ -64,18 +78,15 @@ public class HighSchoolDungeon{
 	
 	//instantiate the player's character
 	int charType=1;
-	
-	s = "\nHow do you want to vanquish your enemies?";
-	s += "\t1: I will fight as a Strong Warrior\n";
-	s += _warrior.about();
-	s += "\n\t2: I will fight as a Magical Mage\n";
-	s += _mage.about();
-	s += "\n\t3: I will fight as an Agile Rogue\n";
-	s += _rogue.about();
-	s += "\n\t4: I will fight as a Crafty Lawyer\n";
-	s += _lawyer.about();
-	s += "\n\t5: I will fight as an Epic Computer Science Teacher";
-	s += _csteacher.about();
+
+	//add flavor text here
+	s = "What were you renowned for in middle school?\n";
+	s += "\t1: I was the top Jock. I was the master of the school yard.\n";
+	//s += _jock.about(); //maybe implement later or remove entirely
+	s += "\n\t2: I was the top Nerd. I was the master of the library.\n";
+	//s += _nerd.about();
+	s += "\n\t3: I was the top Prep. I was the master of the cafeteria.\n";
+	//s += _prep.about();
 	System.out.println( s );
 	
 	try {
@@ -83,8 +94,7 @@ public class HighSchoolDungeon{
 	}
 	catch ( IOException e ) { }
 	
-	s = "\n\nWise Choice";
-	s += "\nYou Chose: ";
+	s += "\nYou were a: ";
 	
 	if (charType==1){
 	    pat = new Warrior(name);
