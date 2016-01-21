@@ -68,7 +68,7 @@ public class HighSchoolDungeon{
 	s += "Blah, blah, blah, exposition and introductions\n";
 	s += "'Alright, everyone.' the teacher says. 'Introduce yourself!'\n";
 	s += "What's your name?\n";
-	s += "Name:"
+	s += "Name:";
 	System.out.print( s );
 	
 	try {
