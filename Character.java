@@ -18,6 +18,8 @@ public abstract class Character{
     protected Item[][] inventory;
 
     //accessors
+    public int getmaxHP() {return maxHP;}
+    public int getmaxMP() {return maxMP;}
     public int getHP() {return HP;}
     public int getMP() {return MP;}
     public int getXP() {return XP;}
@@ -34,6 +36,8 @@ public abstract class Character{
 
     //mutators
     //REMEMBER: SET NEG VALUES TO REDUCE, POS TO INCREASE
+    public void setmaxHP(int health) {maxHP = health;}
+    public void setmaxMP(int mana) {maxMP = mana;}
     public void setHP(int health) {HP += health;}
     public void setMP(int mana) {MP += mana;}
     public void setLev(int level) {lev += level;}
