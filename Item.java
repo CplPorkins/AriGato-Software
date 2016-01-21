@@ -1,5 +1,4 @@
-public class Item{
-    public int effect;
-    public int quantity;
-    
+public interface Item{
+    int cost;
+    void use();
 }//end item
