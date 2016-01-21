@@ -1,4 +1,4 @@
 public interface Item{
-    int cost;
+    int cost=0;
     void use();
 }//end item

@@ -1,8 +1,10 @@
 public class Prep extends Character{
 
     public Prep(){
-	HP= 15;
-	MP= 10;
+	maxHP= 15;
+	maxMP= 10;
+	HP= maxHP;
+	MP= maxMP;
 	att= 10;
 	def= 10;
 	str= 10;

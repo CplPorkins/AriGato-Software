@@ -1,8 +1,10 @@
 public class Jock extends Character{
 
     public Jock(){
-	HP= 20;
-	MP= 5;
+	maxHP= 20;
+	maxMP= 5;
+	HP= maxHP;
+	MP= maxHP;
 	att= 15;
 	def= 10;
 	str= 15;

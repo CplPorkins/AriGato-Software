@@ -1,6 +1,8 @@
 public abstract class Character{
     
-    protected int HP ;
+    protected int maxHP ;
+    protected int maxMP;
+    protected int HP;
     protected int MP;
     protected int XP;
     protected int lev;

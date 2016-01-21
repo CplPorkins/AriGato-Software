@@ -1,8 +1,10 @@
 public class Nerd extends Character{
     
     public Nerd(){
-	HP = 10;
-	MP= 20;
+	maxHP= 10;
+	maxMP= 20;
+	HP= maxHP;
+	MP= maxMP;
 	att= 5;
 	def= 5;
 	str= 5;
