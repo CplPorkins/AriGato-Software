@@ -26,7 +26,7 @@ public class Monster extends Character{
     }
 
     void performAttack(Character C){
-	C.setHP(int(((lev*(att+str))/2)-C.getDef()-(C.getCon()/2)));
+	C.setHP((int)(((lev*(att+str))/2)-C.getDef()-(C.getCon()/2)));
     }
 }
 

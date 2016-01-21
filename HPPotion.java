@@ -1,10 +1,10 @@
 public class HPPotion implements Item{
 
-    public void use(){
+    public void use(Character C){
 	//maybe add an if to prevent wasting potions
-	setHP(5);
-	if(getHP()>getmaxHP()){
-	    setHP(-getHP() + getmaxHP());
+	C.setHP(5);
+	if(C.getHP()>C.getmaxHP()){
+	    C.setHP(-(C.getHP()) + C.getmaxHP());
 	}
     }
 
