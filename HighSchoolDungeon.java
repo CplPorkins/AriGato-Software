@@ -6,7 +6,7 @@ import java.util.*;
 public class HighSchoolDungeon{
     
     //Instance Vars
-    private Character ryder;
+    private Object ryder; //only temporarily an object
     private Prep _prep;
     private Jock _jock;
     private Nerd _nerd;
@@ -44,6 +44,7 @@ public class HighSchoolDungeon{
 
 	s += "\n";
 	s += "Enter 1 to continue..."; //just to test readint capability; remove later
+	System.out.println(s);
 	try {
 	    gameStarted = Integer.parseInt(in.readLine());
 	}
@@ -94,12 +95,23 @@ public class HighSchoolDungeon{
 	}
 	catch ( IOException e ) { }
 	
-	s += "\nYou were a: ";
+	s = "\nYou were a: ";
 	
 	if (charType==1){
-	    pat = new Jock(name);
+	    ryder = new Object(); //placeholder Object, remind Shanjeed to have constructor in Character that takes a name
+	    s+="Jock"; //will insert name later
+	}
+
+	if (charType==2){
+	    ryder = new Object();
+	    s+="Nerd";
+	}
+
+	if (charType==1){
+	    ryder = new Object();
 	    s+="Jock";
 	}
+
 
 	System.out.println(s);
 	
@@ -112,7 +124,7 @@ public class HighSchoolDungeon{
       post: Returns true if player wins (monster dies).
       Returns false if monster wins (player dies).
       =============================================*/
-    public boolean playTurn() {
+    /*    public boolean playTurn() {
 	
        	int i = 1;
 	int d1, d2;
@@ -175,21 +187,21 @@ public class HighSchoolDungeon{
 	
 	return true;
     }//end playTurn()
-
+    */
     public static void main(String[] args) {      	
 	//loading...
 	HighSchoolDungeon game = new HighSchoolDungeon();
 	
 	int encounters = 0;
-	
+	/*
 	while( encounters < MAX_ENCOUNTERS ) {
 	    if ( !game.playTurn() )
 		break;
 	    encounters++;
 	    System.out.println();
 	}
-				
-	System.out.println( "Thy game doth be over." );
+	*/
+	System.out.println( "You graduated!" );
     }    
 }
 
