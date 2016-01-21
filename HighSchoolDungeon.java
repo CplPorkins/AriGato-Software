@@ -107,9 +107,9 @@ public class HighSchoolDungeon{
 	    s+="Nerd";
 	}
 
-	if (charType==1){
+	if (charType==3){
 	    ryder = new Object();
-	    s+="Jock";
+	    s+="Prep";
 	}
 
 
