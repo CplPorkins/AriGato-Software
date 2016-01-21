@@ -16,7 +16,7 @@ public class HighSchoolDungeon{
     private InputStreamReader isr;
     private BufferedReader in;
 
-        // ~~~~~~~~~~ DEFAULT CONSTRUCTOR ~~~~~~~~~~~
+    // ~~~~~~~~~~ DEFAULT CONSTRUCTOR ~~~~~~~~~~~
     public HighSchoolDungeon() {
 	gameOver = false;
 	isr = new InputStreamReader( System.in );
@@ -97,29 +97,10 @@ public class HighSchoolDungeon{
 	s += "\nYou were a: ";
 	
 	if (charType==1){
-	    pat = new Warrior(name);
-	    s+="Warrior";
+	    pat = new Jock(name);
+	    s+="Jock";
 	}
-	
-	if (charType==2){
-	    pat = new Mage(name);
-	    s+="Mage";
-	}
-	
-	if (charType==3){
-	    pat = new Rogue(name); 
-	    s+="Rogue";
-	}
-	
-	if (charType==4){
-	    pat = new Lawyer(name);
-	    s+="Lawyer";
-	}
-	
-	if (charType==5){
-	    pat = new CSTeacher(name);
-	    s+="CS Teacher";
-	}
+
 	System.out.println(s);
 	
     }//end newGame()
@@ -133,8 +114,10 @@ public class HighSchoolDungeon{
       =============================================*/
     public boolean playTurn() {
 	
-	int i = 1;
+       	int i = 1;
 	int d1, d2;
+	
+	int difficulty=1;
 	
 	if ( Math.random() >= ( difficulty / 3.0 ) )
 	    System.out.println( "\nNothing to see here. Move along!" );
@@ -195,7 +178,7 @@ public class HighSchoolDungeon{
 
     public static void main(String[] args) {      	
 	//loading...
-	YoRPG game = new YoRPG();
+	HighSchoolDungeon game = new HighSchoolDungeon();
 	
 	int encounters = 0;
 	
