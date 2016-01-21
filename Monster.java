@@ -24,5 +24,9 @@ public class Monster extends Character{
 	    //INCREASE STATS
 	}
     }
+
+    void performAttack(Character C){
+	C.setHP(int(((lev*(att+str))/2)-C.getDef()-(C.getCon()/2)));
+    }
 }
 

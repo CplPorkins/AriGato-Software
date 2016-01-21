@@ -24,6 +24,10 @@ public class Nerd extends Character{
 	    //INCREASE STATS
 	}
     }
+
+    void performAttack(Monster M){
+	M.setHP(int(((lev*(att+str))/2)-M.getDef()-(M.getCon()/2)));
+    }
 }
 
 
