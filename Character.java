@@ -14,8 +14,9 @@ public abstract class Character{
     protected int cha;
     protected int intel;
     protected int con;
+    protected int cash;
     protected String name;
-    protected Item[][] inventory;
+    protected ArrayList<ArrayList<Item>> inventory;
 
     //accessors
     public int getmaxHP() {return maxHP;}
@@ -32,6 +33,7 @@ public abstract class Character{
     public int getCha() {return cha;}
     public int getIntel() {return intel;}
     public int getCon() {return con;}
+    public int getCash() {return cash;}
     public String getName() {return name;}
 
     //mutators
@@ -50,6 +52,7 @@ public abstract class Character{
     public void setIntel(int intelligence) {intel += intelligence;}
     public void setCon(int constitution) {con += constitution;}
     public void setName(String input) {name = input;}
+    public void setCash(int amount) {cash += amount;}
     
     //methods
     public boolean isDead(){return HP<=0;};
@@ -57,7 +60,6 @@ public abstract class Character{
     //abstract methods
     //abstract void useItem(Item x);
     //abstract void performAttack();
-    //abstract void die();
     abstract void levelUp();
     //abstract void pickUp();
 }
