@@ -38,7 +38,7 @@ public class HighSchoolDungeon{
 
 	String s;
 	String name = "";
-	s = "High School Dungeon\n";
+	s += "High School Dungeon\n";
 	s += "An everyday high school dungeon crawler\n";
 	s += "An Ari-Gato Software Production\n";
 
