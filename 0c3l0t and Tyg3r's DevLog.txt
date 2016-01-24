@@ -24,6 +24,7 @@ We created ShopOwner.java and better universalized all the Character/Item requir
 Things completed today:
 Discussion on inventory structure
 More diagram work on battle program
+implemented 2D array structured inventory
 
 Goals for today:
 MAKE SURE TO COMPLETE INVENTORY AND BATTLE PROGRAM

@@ -62,7 +62,9 @@ public abstract class Character{
     
     //methods
     public boolean isDead(){return HP<=0;};
-    
+
+    //with 2D arrays, unnecessary
+    /*
     //invSearch returns index of first occurence or returns -1
     public int invSearch(Item target) {
 	//default assume it's not there
@@ -75,6 +77,7 @@ public abstract class Character{
 	}
 	return index;
     }
+    */
 
     //abstract methods
     //abstract void useItem(Item x);
