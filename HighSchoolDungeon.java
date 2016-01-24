@@ -15,6 +15,7 @@ public class HighSchoolDungeon{
 
     private InputStreamReader isr;
     private BufferedReader in;
+    private IOException win= new IOException();
 
     // ~~~~~~~~~~ DEFAULT CONSTRUCTOR ~~~~~~~~~~~
     public HighSchoolDungeon() {
@@ -35,7 +36,6 @@ public class HighSchoolDungeon{
       and instantiates a Warrior
       =============================================*/
     public void newGame() {
-
 	String s="";
 	String name = "";
 	s += "High School Dungeon\n";
@@ -45,11 +45,18 @@ public class HighSchoolDungeon{
 	s += "\n";
 	s += "Enter 1 to continue..."; //just to test readint capability; remove later
 	System.out.println(s);
-	try {
-	    gameStarted = Integer.parseInt(in.readLine());
+	while (!(gameStarted==1)){
+		try {
+		    gameStarted = Integer.parseInt(in.readLine());
+		    if (gameStarted !=1){
+			throw win;
+		    }
+		}
+		catch ( IOException | NumberFormatException  e ) {
+		    System.out.println("That's not right");
+		    System.out.println("Enter 1 to continue...");
+		}
 	}
-	catch (IOException e) {retur}
-	
 	
 	/* Will implement if time allows 
 	s += "\nChoose your difficulty: \n";
@@ -78,7 +85,7 @@ public class HighSchoolDungeon{
 	catch ( IOException e ) { }
 	
 	//instantiate the player's character
-	int charType=1;
+	int charType=0;
 
 	//add flavor text here
 	s = "What were you renowned for in middle school?\n";
@@ -89,11 +96,18 @@ public class HighSchoolDungeon{
 	s += "\n\t3: I was the top Prep. I was the master of the cafeteria.\n";
 	//s += _prep.about();
 	System.out.println( s );
-	
-	try {
-	    charType = Integer.parseInt( in.readLine() );
+
+	while (((charType!=1)&&(charType!=2)&&(charType!=3))){
+	    try {
+		charType = Integer.parseInt( in.readLine() );
+		if (!((charType==1)||(charType==2)||(charType==3))){
+		    throw win;
+		}  
+	    }
+	    catch ( IOException | NumberFormatException e ) {
+		System.out.println("That's not right,try again");
+	    }
 	}
-	catch ( IOException e ) { }
 	
 	s = "\nYou were a: ";
 	
@@ -114,6 +128,8 @@ public class HighSchoolDungeon{
 
 
 	System.out.println(s);
+
+	store();
 	
     }//end newGame()
 
@@ -125,19 +141,49 @@ public class HighSchoolDungeon{
 	String y="";
 	y += "Welcome to the store!\n";
 	y += "What can I do for you, intrepid high school student?\n";
-	int purchase = 1;
-
+	int purchase = 0;
+	String exit= "";
 	y = "Something you'd like to buy?\n";
 	y += "1: HP Potion. Recovers 20% of your health. Costs 100 cash.\n";
-	y += "2: MP Potion. Recovers 20% of your mana. Costs 100 cash\n";
+	y += "2: MP Potion. Recovers 20% of your mana. Costs 100 cash.\n";
 	System.out.println( y );	
-
+	System.out.print("Enter 1 or 2...\n");
 	// try buying something
-	try {
-	    purchase = Integer.parseInt( in.readLine() );
+	while ((purchase!=1)&&(purchase!=2)){
+	    try {
+		purchase = Integer.parseInt( in.readLine() );
+		if (!((purchase==1)||(purchase==2))){
+		    throw win;
+		}
+	    }
+	    catch ( IOException | NumberFormatException e ) {
+		System.out.println("Thats not right\n");
+		/*	System.out.println("Do you want to exit the store? Enter y for yes or n for no.");
+		
+		try {
+		    exit = in.readLine();
+		    if ((exit=="Y")||(exit=="y")){
+			System.out.println("Come back when you're ready to buy something!");
+			break;
+		    }
+		    if ((exit=="N")||(exit=="n")){
+			break;
+		    }
+		    else{throw win;}
+		}
+		catch (IOException d) {
+		    System.out.println("Come back when you're ready to buy something!");
+		    break;
+		    }*/
+		}
+	    if (purchase==1){
+		System.out.println("You bought a HPPotion! Here you go.");
+	    }
+	    if (purchase==2){
+		System.out.println("You bought a MPPotion! Here you go.");
+	    }
 	}
-	catch ( IOException e ) { }	
-    }
+    } //end store()
     
     /*=============================================
       boolean playTurn -- simulates a round of combat
