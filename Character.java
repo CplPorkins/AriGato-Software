@@ -62,9 +62,11 @@ public abstract class Character{
     
     //invSearch returns index of first occurence or returns -1
     public int invSearch(Item target) {
+	//default assume it's not there
 	int index = -1;
 	for (int i = 0; i < inventory.size(); i++) {
-	    if (inventory.get(i).compareTo(target) == 0) {
+	    //check if current the same item as target
+	    if (inventory.get(i).equals(target)) {
 		index = i;
 	    }
 	}

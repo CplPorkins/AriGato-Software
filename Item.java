@@ -3,6 +3,6 @@ public interface Item{
     
     void use(Character C);
     
-    int compareTo(Object other);
+    boolean equals(Object other);
     
 }//end item
