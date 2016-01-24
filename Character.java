@@ -75,7 +75,7 @@ public abstract class Character{
 
     //abstract methods
     //abstract void useItem(Item x);
-    //abstract void performAttack();
+    abstract void performAttack();
     abstract void levelUp();
     //abstract void pickUp();
 }

@@ -116,7 +116,28 @@ public class HighSchoolDungeon{
 	System.out.println(s);
 	
     }//end newGame()
-    
+
+    /*=============================================
+      void store
+      launches the store interface, should use everytime we encounter a store
+     ==============================================*/
+    public void store() {
+	String y;
+	y += "Welcome to the store!\n";
+	y += "What can I do for you, intrepid high school student?\n";
+	int purchase = 1;
+
+	y = "Something you'd like to buy?\n";
+	y += "1: HP Potion. Recovers 20% of your health. Costs 100 cash.\n";
+	y += "2: MP Potion. Recovers 20% of your mana. Costs 100 cash\n";
+	System.out.println( y );	
+
+	// try buying something
+	try {
+	    purchase = Integer.parseInt( in.readLine() );
+	}
+	catch ( IOException e ) { }	
+    }
     
     /*=============================================
       boolean playTurn -- simulates a round of combat
