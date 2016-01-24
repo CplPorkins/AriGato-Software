@@ -63,6 +63,30 @@ public abstract class Character{
     //methods
     public boolean isDead(){return HP<=0;};
 
+    public void printInv()
+    {
+	String s;
+	s += "Your inventory\n";
+	s += "HP Potions x" + inventory.get(0).size() + "\n";
+	s += "MP Potions x" + inventory.get(1).size() + "\n";
+
+	// weapons on same lines, separated by commas
+	s += "Weapons:\n";
+	for (int n = 0; n < inventory.get(2).size(); n++)
+	    {
+		s += inventory.get(2).get(n) + ", "; //find way to remove trailing comma lol, too tired rn
+	    }
+	s += "\n";
+
+	// armor on same lines, separated by commas
+	s += "Armor" + inventory.get(3).size() + "\n";
+	for (int a = 0; a < inventory.get(3).size(); a++)
+	    {
+		s += inventory.get(2).get(a) + ", "; //find way to remove trailing comma lol, too tired rn
+	    }
+		
+    }
+
     //with 2D arrays, unnecessary
     /*
     //invSearch returns index of first occurence or returns -1
