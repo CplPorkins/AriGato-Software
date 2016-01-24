@@ -22,7 +22,7 @@ public abstract class Character{
     //basic inventory
     //protected ArrayList<Item> inventory;
     //2D inventory
-    protected ArrayList<ArrayList<Item>>inventory;    
+    protected ArrayList<ArrayList<Item>> inventory=new ArrayList<ArrayList<Item>>();;    
 
     //accessors
     public int getmaxHP() {return maxHP;}
@@ -65,26 +65,28 @@ public abstract class Character{
 
     public void printInv()
     {
-	String s;
+	String s="";
 	s += "Your inventory\n";
-	s += "HP Potions x" + inventory.get(0).size() + "\n";
-	s += "MP Potions x" + inventory.get(1).size() + "\n";
+	s += "HP Potions x " + inventory.get(0).size() + "\n";
+	s += "MP Potions x " + inventory.get(1).size() + "\n";
 
 	// weapons on same lines, separated by commas
 	s += "Weapons:\n";
 	for (int n = 0; n < inventory.get(2).size(); n++)
 	    {
 		s += inventory.get(2).get(n) + ", "; //find way to remove trailing comma lol, too tired rn
+		s=s.substring(0,s.length()-1);
 	    }
 	s += "\n";
 
 	// armor on same lines, separated by commas
-	s += "Armor" + inventory.get(3).size() + "\n";
+	s += "Armor:" /*+ inventory.get(3).size()*/ + "\n";
 	for (int a = 0; a < inventory.get(3).size(); a++)
 	    {
-		s += inventory.get(2).get(a) + ", "; //find way to remove trailing comma lol, too tired rn
+		s += inventory.get(3).get(a) + ", "; //find way to remove trailing comma lol, too tired rn
+		s=s.substring(0,s.length()-1);
 	    }
-		
+	System.out.println(s);	
     }
 
     //with 2D arrays, unnecessary
@@ -105,7 +107,6 @@ public abstract class Character{
 
     //abstract methods
     //abstract void useItem(Item x);
-    abstract void performAttack();
     abstract void levelUp();
     //abstract void pickUp();
 }

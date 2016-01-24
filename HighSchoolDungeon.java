@@ -36,7 +36,7 @@ public class HighSchoolDungeon{
       =============================================*/
     public void newGame() {
 
-	String s;
+	String s="";
 	String name = "";
 	s += "High School Dungeon\n";
 	s += "An everyday high school dungeon crawler\n";
@@ -48,7 +48,7 @@ public class HighSchoolDungeon{
 	try {
 	    gameStarted = Integer.parseInt(in.readLine());
 	}
-	catch (IOException e) {}
+	catch (IOException e) {retur}
 	
 	
 	/* Will implement if time allows 
@@ -122,7 +122,7 @@ public class HighSchoolDungeon{
       launches the store interface, should use everytime we encounter a store
      ==============================================*/
     public void store() {
-	String y;
+	String y="";
 	y += "Welcome to the store!\n";
 	y += "What can I do for you, intrepid high school student?\n";
 	int purchase = 1;
