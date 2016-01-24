@@ -18,7 +18,7 @@ public abstract class Character{
     protected int con;
     protected int cash;
     protected String name;
-    protected ArrayList<ArrayList<Item>> inventory;
+    protected ArrayList<Item> inventory;
 
     //accessors
     public int getmaxHP() {return maxHP;}

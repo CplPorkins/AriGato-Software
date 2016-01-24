@@ -15,9 +15,6 @@ public class Shop extends Character{
 	intel = 10;
 	lev = 99;
 	XP = 0;
-	inventory.add(new ArrayList<HPPotion>()); //HP shelf
-	inventory.add(new ArrayList<MPPotion>()); //MP shelf
-	inventory.get(0).add(999)
     }
 
     void levelUp(){
