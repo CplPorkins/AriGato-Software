@@ -19,7 +19,10 @@ public abstract class Character{
     protected int con;
     protected int cash;
     protected String name;
-    protected ArrayList<Item> inventory;
+    //basic inventory
+    //protected ArrayList<Item> inventory;
+    //2D inventory
+    protected ArrayList<ArrayList<Item>>inventory;    
 
     //accessors
     public int getmaxHP() {return maxHP;}
