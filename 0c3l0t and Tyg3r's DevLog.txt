@@ -22,3 +22,8 @@ Things completed since 1/20:
 We created ShopOwner.java and better universalized all the Character/Item requirements onto the subclasses
 
 Things completed today:
+Discussion on inventory structure
+More diagram work on battle program
+
+Note to developers:
+MAKE SURE TO COMPLETE INVENTORY AND BATTLE PROGRAM TODAY
