@@ -16,3 +16,9 @@ Playable Character constructors added
 Item modified
 Potion classes added
 Basic version of driver class written
+
+1/23
+Things completed since 1/20:
+We created ShopOwner.java and better universalized all the Character/Item requirements onto the subclasses
+
+Things completed today:
