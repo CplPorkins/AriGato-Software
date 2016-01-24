@@ -1,3 +1,4 @@
+//ArrayList's implementation is in the java.util package
 import java.util.ArrayList;
     
 public abstract class Character{
@@ -58,6 +59,17 @@ public abstract class Character{
     
     //methods
     public boolean isDead(){return HP<=0;};
+    
+    //invSearch returns index of first occurence or returns -1
+    public int invSearch(Item target) {
+	int index = -1;
+	for (int i = 0; i < inventory.size(); i++) {
+	    if (inventory.get(i).compareTo(target) == 0) {
+		index = i;
+	    }
+	}
+	return index;
+    }
 
     //abstract methods
     //abstract void useItem(Item x);

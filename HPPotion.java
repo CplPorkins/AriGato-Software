@@ -7,5 +7,8 @@ public class HPPotion implements Item{
 	    C.setHP(-(C.getHP()) + C.getmaxHP());
 	}
     }
+    
+    public int compareTo(Object other) {
+    }
 
 }

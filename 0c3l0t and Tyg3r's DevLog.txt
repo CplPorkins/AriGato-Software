@@ -25,5 +25,9 @@ Things completed today:
 Discussion on inventory structure
 More diagram work on battle program
 
-Note to developers:
-MAKE SURE TO COMPLETE INVENTORY AND BATTLE PROGRAM TODAY
+Goals for today:
+MAKE SURE TO COMPLETE INVENTORY AND BATTLE PROGRAM
+overwrite .compareTo in Item
+Or write entirely new function that compares stuff?
+maybe just extend Comparable for Item?
+
