@@ -16,6 +16,7 @@ public class Prep extends Character{
 	lev= 1;
 	XP= 0;
 	name= n;
+	cash = 100;
     }
 
     public String toString(){

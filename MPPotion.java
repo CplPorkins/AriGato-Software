@@ -1,4 +1,4 @@
-public class MPPotion{
+public class MPPotion implements Item{
     
     public void use(Character C){
 	//maybe add an if to prevent wasting potions

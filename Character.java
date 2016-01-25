@@ -22,7 +22,7 @@ public abstract class Character{
     //basic inventory
     //protected ArrayList<Item> inventory;
     //2D inventory
-    protected ArrayList<ArrayList<Item>> inventory=new ArrayList<ArrayList<Item>>();;    
+    protected ArrayList<ArrayList<Item>> inventory = new ArrayList<ArrayList<Item>>();  
 
     //accessors
     public int getmaxHP() {return maxHP;}
@@ -61,11 +61,32 @@ public abstract class Character{
     public void setCash(int amount) {cash += amount;}
     
     //methods
+
+    //adds four shelves for HP, MP, weapon, and armor
+    public void createShelves() {
+	inventory.add(new ArrayList<Item>());
+	inventory.add(new ArrayList<Item>());
+	inventory.add(new ArrayList<Item>());
+	inventory.add(new ArrayList<Item>()); 	
+    }
+    
     public boolean isDead(){return HP<=0;};
+
+    public void addHPPotion()
+    {
+	HPPotion x = new HPPotion();
+	inventory.get(0).add(x);
+    }
+
+    public void addMPPotion()
+    {
+	MPPotion y = new MPPotion();
+	inventory.get(1).add(y);
+    }    
 
     public void printInv()
     {
-	String s="";
+	String s= "";
 	s += "Your inventory\n";
 	s += "HP Potions x " + inventory.get(0).size() + "\n";
 	s += "MP Potions x " + inventory.get(1).size() + "\n";

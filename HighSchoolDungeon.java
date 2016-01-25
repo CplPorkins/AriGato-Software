@@ -6,7 +6,7 @@ import java.util.*;
 public class HighSchoolDungeon{
     
     //Instance Vars
-    private Object ryder; //only temporarily an object
+    private Character ryder;
     private Prep _prep;
     private Jock _jock;
     private Nerd _nerd;
@@ -76,7 +76,7 @@ public class HighSchoolDungeon{
 	s += "Blah, blah, blah, exposition and introductions\n";
 	s += "'Alright, everyone.' the teacher says. 'Introduce yourself!'\n";
 	s += "What's your name?\n";
-	s += "Name:";
+	s += "Name: ";
 	System.out.print( s );
 	
 	try {
@@ -84,17 +84,15 @@ public class HighSchoolDungeon{
 	}
 	catch ( IOException e ) { }
 	
-	//instantiate the player's character
-	int charType=0;
+	//instantiate the player's character's shelves
+	ryder.createShelves();
+	int charType=0;	
 
 	//add flavor text here
 	s = "What were you renowned for in middle school?\n";
 	s += "\t1: I was the top Jock. I was the master of the school yard.\n";
-	//s += _jock.about(); //maybe implement later or remove entirely
 	s += "\n\t2: I was the top Nerd. I was the master of the library.\n";
-	//s += _nerd.about();
 	s += "\n\t3: I was the top Prep. I was the master of the cafeteria.\n";
-	//s += _prep.about();
 	System.out.println( s );
 
 	while ((charType!=1)&&(charType!=2)&&(charType!=3)){
@@ -142,11 +140,13 @@ public class HighSchoolDungeon{
 	y += "Welcome to the store!\n";
 	y += "What can I do for you, intrepid high school student?\n";
 	int purchase = 0;
-	y = "Something you'd like to buy?\n";
+	y += "Something you'd like to buy?\n";
+	y += "You currently have " + ryder.getCash() + " cash.\n\n";	
 	y += "1: HP Potion. Recovers 20% of your health. Costs 100 cash.\n";
 	y += "2: MP Potion. Recovers 20% of your mana. Costs 100 cash.\n";
+	y += "3: I'm done with the store.\n";
 	System.out.println( y );	
-	System.out.print("Enter 1 or 2...\n");
+	System.out.print("Enter 1, 2, or 3...\n");
 	// try buying something
 
 	while ((purchase!=1)&&(purchase!=2)){
@@ -159,22 +159,49 @@ public class HighSchoolDungeon{
 	    catch ( IOException | NumberFormatException e ) {
 		System.out.println("Thats not right\n");
 		exitStore();
-		//System.out.println("here");
 		break;
 		}
+	    //if want to buy HP Potion
 	    if (purchase==1){
-		System.out.println("You bought a HPPotion! Here you go.");
-		exitStore();
+		if (ryder.getCash() >= 100)
+		    {
+			System.out.println("You bought a HP Potion! Here you go.");
+			ryder.setCash(-100);
+			System.out.print("Your cash reserve is now "); System.out.println(ryder.getCash());
+			ryder.addHPPotion();
+			store();
+		    }
+		else
+		    {
+			System.out.println("You don't have enough money, you twerp. You trying to chisel me?");
+			store();
+		    }
 	    }
+	    //if want to buy MP Potion
 	    if (purchase==2){
-		System.out.println("You bought a MPPotion! Here you go.");
+		if (ryder.getCash() >= 100)
+		    {
+			System.out.println("You bought a MP Potion! Here you go.");
+			ryder.setCash(-100);
+			System.out.print("Your cash reserve is now "); System.out.println(ryder.getCash());			
+			ryder.addMPPotion();
+			store();			
+		    }
+		else
+		    {
+			System.out.println("You don't have enough money, you twerp. You trying to chisel me?");
+			store();
+		    }
+	    }
+	    //if want to leave
+	    if (purchase==3) {
 		exitStore();
 	    }
 	}
     } //end store()
 
     public void exitStore(){
-	System.out.println("Do you want to exit the store? Enter y for yes or n for no.");
+	System.out.println("Are you sure you want to exit the store? Y/N");
 	String exit="";
 	
 	while ((exit!="n")&&(exit!="y")&&(exit!="N")&&(exit!="Y")){
@@ -202,7 +229,8 @@ public class HighSchoolDungeon{
       post: Returns true if player wins (monster dies).
       Returns false if monster wins (player dies).
       =============================================*/
-    /*    public boolean playTurn() {
+    /*
+    public boolean playTurn() {
 	
        	int i = 1;
 	int d1, d2;
@@ -266,6 +294,8 @@ public class HighSchoolDungeon{
 	return true;
     }//end playTurn()
     */
+
+    
     public static void main(String[] args) {      	
 	//loading...
 	HighSchoolDungeon game = new HighSchoolDungeon();

@@ -5,7 +5,7 @@ public class HPPotion implements Item{
 	//C.setHP(5);
 	//adds a fifth of current HP
 	C.setHP(C.getHP() / 5);
-	if(C.getHP()>C.getmaxHP()){
+	if(C.getHP() > C.getmaxHP()){
 	    C.setHP(-(C.getHP()) + C.getmaxHP());
 	}
     }
