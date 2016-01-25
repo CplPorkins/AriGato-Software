@@ -148,6 +148,7 @@ public class HighSchoolDungeon{
 	System.out.println( y );	
 	System.out.print("Enter 1 or 2...\n");
 	// try buying something
+
 	while ((purchase!=1)&&(purchase!=2)){
 	    try {
 		purchase = Integer.parseInt( in.readLine() );
@@ -158,13 +159,16 @@ public class HighSchoolDungeon{
 	    catch ( IOException | NumberFormatException e ) {
 		System.out.println("Thats not right\n");
 		exitStore();
+		System.out.println("here");
 		break;
 		}
 	    if (purchase==1){
 		System.out.println("You bought a HPPotion! Here you go.");
+		exitStore();
 	    }
 	    if (purchase==2){
 		System.out.println("You bought a MPPotion! Here you go.");
+		exitStore();
 	    }
 	}
     } //end store()
@@ -176,16 +180,17 @@ public class HighSchoolDungeon{
 	while ((exit!="n")&&(exit!="y")&&(exit!="N")&&(exit!="Y")){
 	    try {
 		exit = in.readLine();
-		System.out.println(exit);
 		if (exit.equals("y") || exit.equals("Y")){
-		    System.out.println("Come back when you're ready to buy something!");
-		    break;
+		    System.out.println("Come back when you're ready to buy something! Okay?");
+		    return;
 		}
-		if ((exit=="N")||(exit=="n")){	    
+		if (exit.equals("N")|| exit.equals("n")){
+		    store();
 		}
 		else{throw win;}
 	    }
 	    catch (IOException e) {
+		System.out.println("here1");
 		System.out.println("I'm sorry, I didn't get that. Enter y for yes or n for no.");	    
 	    }
 	}
