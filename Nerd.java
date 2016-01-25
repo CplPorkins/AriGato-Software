@@ -17,6 +17,7 @@ public class Nerd extends Character{
 	XP= 0;
 	name= n;
 	cash = 100;
+	createShelves();
     }
 
     public String toString(){

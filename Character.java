@@ -64,10 +64,10 @@ public abstract class Character{
 
     //adds four shelves for HP, MP, weapon, and armor
     public void createShelves() {
-	inventory.add(new ArrayList<Item>());
-	inventory.add(new ArrayList<Item>());
-	inventory.add(new ArrayList<Item>());
-	inventory.add(new ArrayList<Item>()); 	
+	for(int i=0;i<4; i++){
+	    ArrayList<Item> x = new ArrayList<Item>();
+	    inventory.add(x);
+	}	
     }
     
     public boolean isDead(){return HP<=0;};
@@ -128,6 +128,6 @@ public abstract class Character{
 
     //abstract methods
     //abstract void useItem(Item x);
-    abstract void levelUp();
+    //abstract void levelUp();
     //abstract void pickUp();
 }

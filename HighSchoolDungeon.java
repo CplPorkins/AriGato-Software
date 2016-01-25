@@ -85,7 +85,6 @@ public class HighSchoolDungeon{
 	catch ( IOException e ) { }
 	
 	//instantiate the player's character's shelves
-	ryder.createShelves();
 	int charType=0;	
 
 	//add flavor text here
@@ -128,13 +127,15 @@ public class HighSchoolDungeon{
 	System.out.println(s+"\n");
 
 	store();
+	ryder.printInv();
 	
     }//end newGame()
 
-    /*=============================================
+    
+    /*==============================================================================================================================================
       void store
       launches the store interface, should use everytime we encounter a store
-     ==============================================*/
+      ==============================================================================================================================================*/
     public void store() {
 	String y="";
 	y += "Welcome to the store!\n";
@@ -149,16 +150,16 @@ public class HighSchoolDungeon{
 	System.out.print("Enter 1, 2, or 3...\n");
 	// try buying something
 
-	while ((purchase!=1)&&(purchase!=2)){
+	while ((purchase!=1)&&(purchase!=2)&&(purchase!=3)){
 	    try {
 		purchase = Integer.parseInt( in.readLine() );
-		if (!((purchase==1)||(purchase==2))){
+		if (!((purchase==1)||(purchase==2)||(purchase==3))){
 		    throw win;
 		}
 	    }
 	    catch ( IOException | NumberFormatException e ) {
 		System.out.println("Thats not right\n");
-		exitStore();
+		//store();
 		break;
 		}
 	    //if want to buy HP Potion
@@ -173,7 +174,7 @@ public class HighSchoolDungeon{
 		    }
 		else
 		    {
-			System.out.println("You don't have enough money, you twerp. You trying to chisel me?");
+			System.out.println("You don't have enough money, you twerp. You trying to chisel me?\n");
 			store();
 		    }
 	    }
@@ -189,7 +190,7 @@ public class HighSchoolDungeon{
 		    }
 		else
 		    {
-			System.out.println("You don't have enough money, you twerp. You trying to chisel me?");
+			System.out.println("You don't have enough money, you twerp. You trying to chisel me?\n");
 			store();
 		    }
 	    }
@@ -207,14 +208,18 @@ public class HighSchoolDungeon{
 	while ((exit!="n")&&(exit!="y")&&(exit!="N")&&(exit!="Y")){
 	    try {
 		exit = in.readLine();
-		if (exit.equals("y") || exit.equals("Y")){
-		    System.out.println("Come back when you're ready to buy something! Okay?");
-		    return;
+		if (!(exit.equals("n")||exit.equals("N")||exit.equals("y")||exit.equals("Y"))){
+		    exit="";
+		    throw win;
 		}
 		if (exit.equals("N")|| exit.equals("n")){
+		    exit="";
 		    store();
 		}
-		else{throw win;}
+		if (exit.equals("y") || exit.equals("Y")){
+		    exit="";
+		    break;
+		}
 	    }
 	    catch (IOException e) {
 		//System.out.println("here1");
