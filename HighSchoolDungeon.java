@@ -97,7 +97,7 @@ public class HighSchoolDungeon{
 	//s += _prep.about();
 	System.out.println( s );
 
-	while (((charType!=1)&&(charType!=2)&&(charType!=3))){
+	while ((charType!=1)&&(charType!=2)&&(charType!=3)){
 	    try {
 		charType = Integer.parseInt( in.readLine() );
 		if (!((charType==1)||(charType==2)||(charType==3))){
@@ -142,7 +142,6 @@ public class HighSchoolDungeon{
 	y += "Welcome to the store!\n";
 	y += "What can I do for you, intrepid high school student?\n";
 	int purchase = 0;
-	String exit= "";
 	y = "Something you'd like to buy?\n";
 	y += "1: HP Potion. Recovers 20% of your health. Costs 100 cash.\n";
 	y += "2: MP Potion. Recovers 20% of your mana. Costs 100 cash.\n";
@@ -158,23 +157,8 @@ public class HighSchoolDungeon{
 	    }
 	    catch ( IOException | NumberFormatException e ) {
 		System.out.println("Thats not right\n");
-		/*	System.out.println("Do you want to exit the store? Enter y for yes or n for no.");
-		
-		try {
-		    exit = in.readLine();
-		    if ((exit=="Y")||(exit=="y")){
-			System.out.println("Come back when you're ready to buy something!");
-			break;
-		    }
-		    if ((exit=="N")||(exit=="n")){
-			break;
-		    }
-		    else{throw win;}
-		}
-		catch (IOException d) {
-		    System.out.println("Come back when you're ready to buy something!");
-		    break;
-		    }*/
+		exitStore();
+		break;
 		}
 	    if (purchase==1){
 		System.out.println("You bought a HPPotion! Here you go.");
@@ -184,7 +168,29 @@ public class HighSchoolDungeon{
 	    }
 	}
     } //end store()
-    
+
+    public void exitStore(){
+	System.out.println("Do you want to exit the store? Enter y for yes or n for no.");
+	String exit="";
+	
+	while ((exit!="n")&&(exit!="y")&&(exit!="N")&&(exit!="Y")){
+	    try {
+		exit = in.readLine();
+		System.out.println(exit);
+		if (exit.equals("y") || exit.equals("Y")){
+		    System.out.println("Come back when you're ready to buy something!");
+		    break;
+		}
+		if ((exit=="N")||(exit=="n")){	    
+		}
+		else{throw win;}
+	    }
+	    catch (IOException e) {
+		System.out.println("I'm sorry, I didn't get that. Enter y for yes or n for no.");	    
+	    }
+	}
+    }
+   
     /*=============================================
       boolean playTurn -- simulates a round of combat
       pre:  Warrior pat has been initialized
