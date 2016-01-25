@@ -1,6 +1,6 @@
 public class Nerd extends Character{
     
-    public Nerd(){
+    public Nerd(String n){
 	maxHP= 10;
 	maxMP= 20;
 	HP= maxHP;
@@ -15,8 +15,13 @@ public class Nerd extends Character{
 	intel= 20;
 	lev= 1;
 	XP= 0;
+	name= n;
     }
 
+    public String toString(){
+	return name+" the Nerd";
+    }
+    
     void levelUp(){
 	if (XP>=100){
 	    lev+=1;

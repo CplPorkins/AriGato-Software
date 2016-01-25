@@ -1,6 +1,6 @@
 public class Jock extends Character{
 
-    public Jock(){
+    public Jock(String n){
 	maxHP= 20;
 	maxMP= 5;
 	HP= maxHP;
@@ -15,6 +15,11 @@ public class Jock extends Character{
 	intel= 5;
 	lev= 1;
 	XP= 0;
+	name= n;
+    }
+
+    public String toString(){
+	return name+" the Jock";
     }
 
     void levelUp(){

@@ -1,6 +1,6 @@
 public class Prep extends Character{
 
-    public Prep(){
+    public Prep(String n){
 	maxHP= 15;
 	maxMP= 10;
 	HP= maxHP;
@@ -15,8 +15,13 @@ public class Prep extends Character{
 	intel= 15;
 	lev= 1;
 	XP= 0;
+	name= n;
     }
 
+    public String toString(){
+	return name+" the Prep";
+    }
+    
     void levelUp(){
 	if (XP>=100){
 	    lev+=1;

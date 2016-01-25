@@ -109,25 +109,25 @@ public class HighSchoolDungeon{
 	    }
 	}
 	
-	s = "\nYou were a: ";
+	s = "\nYou are: ";
 	
 	if (charType==1){
-	    ryder = new Object(); //placeholder Object, remind Shanjeed to have constructor in Character that takes a name
-	    s+="Jock"; //will insert name later
+	    ryder = new Jock(name); //placeholder Object, remind Shanjeed to have constructor in Character that takes a name
+	    // s+=ryder; //will insert name later
 	}
 
 	if (charType==2){
-	    ryder = new Object();
-	    s+="Nerd";
+	    ryder = new Nerd(name);
+	    //s+="Nerd";
 	}
 
 	if (charType==3){
-	    ryder = new Object();
-	    s+="Prep";
+	    ryder = new Prep(name);
+	    //s+="Prep";
 	}
 
-
-	System.out.println(s);
+	s+=ryder;
+	System.out.println(s+"\n");
 
 	store();
 	
@@ -159,7 +159,7 @@ public class HighSchoolDungeon{
 	    catch ( IOException | NumberFormatException e ) {
 		System.out.println("Thats not right\n");
 		exitStore();
-		System.out.println("here");
+		//System.out.println("here");
 		break;
 		}
 	    if (purchase==1){
@@ -190,7 +190,7 @@ public class HighSchoolDungeon{
 		else{throw win;}
 	    }
 	    catch (IOException e) {
-		System.out.println("here1");
+		//System.out.println("here1");
 		System.out.println("I'm sorry, I didn't get that. Enter y for yes or n for no.");	    
 	    }
 	}
