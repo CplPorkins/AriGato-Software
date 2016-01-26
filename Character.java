@@ -90,7 +90,15 @@ public abstract class Character{
 	setCha(5);
 	setIntel(5);
 	setCon(5);	
-    } 
+    }
+
+    public void addWeapon(Weapon w) {
+	inventory.get(2).add((Item)w);
+    }
+
+    public void addArmor(Armor a) {
+	inventory.get(3).add((Item)a);
+    }    
 
     public void addHPPotion()
     {

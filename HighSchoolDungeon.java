@@ -383,12 +383,96 @@ public class HighSchoolDungeon{
 	s += "It's none other than that Impossible Final that butchers freshmen!\n\n";
 	System.out.println(s + "\n");
 	battle(3);
+	s = "\n\n";
+	s += "Not only did you pass the Impossible Final, you defeated it!\n";
+	s += "Standing over its bloodied corpse, you notice a glimmer in the gore.\n\n";
+	s += "You pick up a Golden Muji Pen. It provides you with additional attack power.\n\n";
+	Weapon muji = new Weapon("Golden Muji Pen");
+	addWeapon(muji); ryder.setAtt(3); //+3 b/c of pen
+	s += "With pride of your freshman accomplishments in your heart, you march bravely forward...\n";
+	s += "...into sophomore year.\n\n";
+	System.out.println(s);
     }
 
     public void sophomore() {
+	int encounter = 0;
+	String s;
+	int c;
+	s = "You plunge further into the abyss that is Save-a-saint High School\n";
+	s += "Not quite as optimistic as you were initially, but you feel more comfortable in this oppressive environment.\n";
+	s += "As you wander these halls like a wise fool, you wonder if this nightmare will ever end...\n\n";
+	s += "You're almost half-way there.\n";
+	s += "You find yourself at a crossroads.\n\n";
+	System.out.println(s);
+
+	while (encounter < 9) {
+	    choice();
+	    s = "\n\n";
+	    s += "Exploring sophomore year, you think you hear a rustling in the distance...\n";
+	    System.out.println(s);
+	    //random enemy from 0 to 2
+	    battle(0 + (int)(Math.random() * ((2 - 0) + 1)));
+	    encounter += 1;
+	}
+
+	s = "\n\n";
+	s += "You can see the base of the next set of stairs that'll take you deeper into the dungeon.\n";
+	s += "You're so close to finishing your second year at Save-a-saint...\n";
+	s += "...But you feel a sudden chill and you don't know where it's come from...\n";
+	s += "You see white for a flash of second and then it's on you!\n\n";
+	System.out.println(s + "\n");
+	battle(5);
+	s = "\n";
+	s += "You have braved the Snowstorm and you came to school regardless of its power!\n";
+	s += "By the scene of the battle, you find a pair of galoshes that must have been left behind by a fallen comrade.\n";
+	s += "You take them and you feel more confident in your ability to hold off enemy attacks.\n";
+	Armor galoshes = new Armor("Galoshes");
+	addArmor(galoshes); ryder.setDef(3);
+	s += "With sophomore year behind you, you hesitate because you know what's next...\n";
+	s += "The worst year of them all...\n";
+	s += "Junior year.\n\n";
+	System.out.println(s);	
     }
 
     public void junior() {
+	int encounter = 0;
+	String s;
+	int c;
+	s = "You are tired beyond comprehension. Nothing can comfort you. You are now a junior.\n";
+	s += "At this point, you have lost of all hope of ever finishing this dungeon.\n";
+	s += "You meander from catastrophe to catastrophe, hoping that maybe a monster will end your suffering here and now.\n\n";
+	s += "You are utterly, completely hopeless.\n";
+	s += "You find yourself at a crossroads.\n\n";
+	System.out.println(s);
+
+	while (encounter < 15) {
+	    choice();
+	    s = "\n\n";
+	    s += "Exploring sophomore year, you think you hear a rustling in the distance...\n";
+	    System.out.println(s);
+	    //random enemy from 0 to 2
+	    battle(0 + (int)(Math.random() * ((2 - 0) + 1)));
+	    encounter += 1;
+	}
+
+	s = "\n\n";
+	s += "You can see the base of the next set of stairs that'll take you deeper into the dungeon.\n";
+	s += "You're so close. You're more than halfway there. Your feet feel like anchors as you drag them across the grimy floor.\n\n";
+	s += "The room suddenly darkens. He's here.\n";
+	s += "The author of all your pain. The man responsible for not canceling school on terrible snow days\n";
+	s += "You prepare yourself for the fight of your life.\n"
+	System.out.println(s + "\n");
+	battle(4);
+	s = "\n";
+	s += "Somehow, you survived...\n";
+	s += "You've done it. You've defeated the Mayor...\n";
+	s += "Junior year is over...\n\n\n";
+	s += "You take the Mayor's hat in victory. Before you even put it on, you already feel stronger.\n\n";
+	Armor hat = new Armor("The Mayor's Hat");
+	addArmor(hat); ryder.setStr(3);
+	s += "You're near the end of the journey. You can almost taste the freedom from this barren, desolate land.\n";
+	s += "You just have one more year to go: senior year.\n\n";
+	System.out.println(s);	
     }
 
     public void senior() {
@@ -582,13 +666,13 @@ public class HighSchoolDungeon{
 	    }
 	    else if ( smaug.isDead() ) {
 		System.out.println( "You got 'em!" );
-		ryder.setXP(smaug.getHP());
-		s = "You've gained " + smaug.getHP() + " XP from this battle.";
+		ryder.setXP(smaug.getmaxHP());
+		s = "You've gained " + smaug.getmaxHP() + " XP from this battle.\n";
 		if (ryder.getXP() >= 50) {
 		    ryder.levelUp();
 		}
 		ryder.setCash(smaug.getCash());
-		s += "You have gained " + smaug.getCash() + " cash from this battle.";
+		s += "You have gained " + smaug.getCash() + " cash from this battle.\n\n";
 		System.out.print(s);
 		return true;
 						}
