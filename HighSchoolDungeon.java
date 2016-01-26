@@ -39,9 +39,8 @@ public class HighSchoolDungeon{
     public void newGame() {
 	String s="";
 	String name = "";
-	s += "High School Dungeon\n";
-	s += "An everyday high school dungeon crawler\n";
-	s += "An Ari-Gato Software Production\n";
+	s += "\n\nWelcome to High School Dungeon\n";
+	s += "\nA slice-of-life high school dungeon crawling game.\n\n";
 
 	s += "\n";
 	s += "Enter 1 to continue..."; //just to test readint capability; remove later
@@ -73,9 +72,71 @@ public class HighSchoolDungeon{
 	catch ( IOException e ) { }
 	*/
 
-	s = "Congratulations on getting into a prestigious NYC public high school!\n"; //add flavor text later
-	s += "Blah, blah, blah, exposition and introductions\n";
-	s += "'Alright, everyone.' the teacher says. 'Introduce yourself!'\n";
+	int line = 0;
+	s = "\n\nOn a casual, nondescript March day, you received a letter in the mail.\n\n";
+	s += "Enter 1 to open and read the letter..."; //just to test readint capability; remove later
+	System.out.println(s);
+	while (!(line == 1)){
+		try {
+		    line = Integer.parseInt(in.readLine());
+		    if (line !=1){
+			throw win;
+		    }
+		}
+		catch ( IOException | NumberFormatException  e ) {
+		    System.out.println("That's not right");
+		    System.out.println("Enter 1 to continue...");
+		}
+	}
+
+	line = 0;
+	s = "Congratulations!\n\n"; //add flavor text later
+	s += "You have been accepted into Save-a-saint High School!\n";
+	s += "Our school is the premier dungeon adventurer high school in New Bork City.\n";
+	s += "You should consider yourself extremely lucky as you are one of only 800 students out of the 3 million who applied to be accepted to this prestigious school.\n";
+	s += "At Save-a-saint, we pride ourselves in subjecting our students to the best training possible. After all, what makes better training than actually having to go through a full, four floor dungeon as a high schooler?\n\n";
+	s += "We look forward to seeing you at Save-a-Saint.\n";
+	s += "We hope that you graduate!(AKA beat all four years!)\n";
+	s += "Remember that failure to graduate means death so no pressure!\n\n";
+	s += "Sincerely, Eij Gnahz, Principal of Save-a-saint High School.\n\n\n";
+	s += "Enter 1 to begin your first day at Save-a-saint...";
+	System.out.println(s);
+	while (!(line == 1)){
+		try {
+		    line = Integer.parseInt(in.readLine());
+		    if (line !=1){
+			throw win;
+		    }
+		}
+		catch ( IOException | NumberFormatException  e ) {
+		    System.out.println("That's not right");
+		    System.out.println("Enter 1 to continue...");
+		}
+	}
+
+	line = 0;
+	s = "You approach the ominous facade of Save-a-saint High School.\n";
+	s += "You've heard that hundreds of kids just like you have died trying to complete all four floors.\n";
+	s += "As you enter the school's menacing gates, you can't help but wonder if you're going to be any different...\n\n";
+	s += "Enter 1 to enter the gates.";
+	System.out.println(s);
+	while (!(line == 1)){
+		try {
+		    line = Integer.parseInt(in.readLine());
+		    if (line !=1){
+			throw win;
+		    }
+		}
+		catch ( IOException | NumberFormatException  e ) {
+		    System.out.println("That's not right");
+		    System.out.println("Enter 1 to continue...");
+		}
+	}
+
+	s = "You see a huge atrium and stairs descending deep, deep down...\n";
+	s += "Before you can approach the stairs any closer, your waist bumps into something.\n";
+	s += "A lone table is in front of you with a sign-up sheet on top of it.";
+	s += "You fill it out...\n\n";
 	s += "What's your name?\n";
 	s += "Name: ";
 	System.out.print( s );
@@ -88,7 +149,6 @@ public class HighSchoolDungeon{
 	//instantiate the player's character's shelves
 	int charType=0;	
 
-	//add flavor text here
 	s = "What were you renowned for in middle school?\n";
 	s += "\t1: I was the top Jock. I was the master of the school yard.\n";
 	s += "\n\t2: I was the top Nerd. I was the master of the library.\n";
@@ -180,13 +240,59 @@ public class HighSchoolDungeon{
 	    s += "Enter a number... ";
 	    System.out.print(s);	    
 	}
+
+	line = 0;
+	s = "\n\nThe moment you finish the form, it disappears!\n\n";
+	s += "You find yourself alone in the atrium until...\n\n";
+	s += "Enter 1 to find out.\n";
+	System.out.println(s);
+	while (!(line == 1)){
+		try {
+		    line = Integer.parseInt(in.readLine());
+		    if (line !=1){
+			throw win;
+		    }
+		}
+		catch ( IOException | NumberFormatException  e ) {
+		    System.out.println("That's not right");
+		    System.out.println("Enter 1 to continue...");
+		}
+	}
+
+	line = 0;
+	s = "A man with a huge knapsack appears in front of you!\n";
+	s += "Before you can say anything, he interrupts.\n\n";
+	s += "'I'm the dungeon vendor! Everytime before you enter a new floor, I'll pop up!'\n";
+	s += "You can buy HP and MP potions from me ... provided you've got the cash.\n";
+	s += "Something tells you that will prove exceedingly handy...\n\n";
+	s += "You decide to peruse his wares.\n\n";
+	s += "Enter 1 to continue.\n\n";
+	System.out.print(s + "\n");
+	while (!(line == 1)){
+		try {
+		    line = Integer.parseInt(in.readLine());
+		    if (line !=1){
+			throw win;
+		    }
+		}
+		catch ( IOException | NumberFormatException  e ) {
+		    System.out.println("That's not right");
+		    System.out.println("Enter 1 to continue...");
+		}
+	}	
+	//first store encounter
 	store();
+	
 	ryder.printInv();
 	if (battle(1)) {
 	    System.out.println("Congrats on your first battle");
 	}
 	
     }//end newGame()
+
+    public void firstYear() {
+	
+    }
 
     
     /*==============================================================================================================================================================
@@ -195,7 +301,7 @@ public class HighSchoolDungeon{
       ==============================================================================================================================================================*/
     public void store() {
 	String y="";
-	y += "Welcome to the store!\n";
+	y += "I'm the dungeon vendor!\n";
 	y += "What can I do for you, intrepid high school student?\n";
 	int purchase = 0;
 	y += "Something you'd like to buy?\n";
