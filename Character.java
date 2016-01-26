@@ -110,6 +110,15 @@ public abstract class Character{
 	System.out.println(s);	
     }
 
+    //returns the damage dealt
+    int basicAttack(Character c)
+    {
+	int damage;
+	damage = (int)(Math.random() * (att*(0.5*str) - c.getDef()));
+	c.setHP(-damage);
+	return damage;
+    }    
+
     //with 2D arrays, unnecessary
     /*
     //invSearch returns index of first occurence or returns -1
@@ -130,4 +139,5 @@ public abstract class Character{
     //abstract void useItem(Item x);
     //abstract void levelUp();
     //abstract void pickUp();
+    
 }

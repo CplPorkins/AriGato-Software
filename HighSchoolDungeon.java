@@ -7,6 +7,7 @@ public class HighSchoolDungeon{
     
     //Instance Vars
     private Character ryder;
+    private Character smaug;
     private Prep _prep;
     private Jock _jock;
     private Nerd _nerd;
@@ -109,25 +110,81 @@ public class HighSchoolDungeon{
 	s = "\nYou are: ";
 	
 	if (charType==1){
-	    ryder = new Jock(name); //placeholder Object, remind Shanjeed to have constructor in Character that takes a name
-	    // s+=ryder; //will insert name later
+	    ryder = new Jock(name);
 	}
 
 	if (charType==2){
 	    ryder = new Nerd(name);
-	    //s+="Nerd";
 	}
 
 	if (charType==3){
 	    ryder = new Prep(name);
-	    //s+="Prep";
 	}
 
 	s+=ryder;
 	System.out.println(s+"\n");
+	int skillPoints = 10;
+	s = "It's time for you to allocate your skill points.\n";
+	s += "You have " + skillPoints + " left.\n";
+	s += "1: Strength. It is currently at " + ryder.getStr() + ".\n";
+	s += "2: Dexterity. It is currently at " + ryder.getDex() + ".\n";
+	s += "3: Wisdom. It is currently at " + ryder.getWis() + ".\n";
+	s += "4: Charisma. It is currently at " + ryder.getCha() + ".\n";
+	s += "5: Intelligence. It is currently at " + ryder.getIntel() + ".\n";
+	s += "6: Constitution. It is currently at " + ryder.getCon() + ".\n\n";
+	s += "What would you like to spend a skill point on?\n";
+	s += "Enter a number... ";
+	System.out.print(s);	
 
+	while (skillPoints != 0) {
+	    int choice = 0;
+	    try {
+		choice =  Integer.parseInt( in.readLine() );
+	    }
+	    catch ( IOException | NumberFormatException e ) {
+		System.out.println("Thats not right\n");
+		break;
+		}
+	    if (choice == 1) {
+		ryder.setStr(1);
+		skillPoints -= 1;
+	    }
+	    if (choice == 2) {
+		ryder.setDex(1);
+		skillPoints -= 1;
+	    }
+	    if (choice == 3) {
+		ryder.setWis(1);
+		skillPoints -= 1;
+	    }
+	    if (choice == 4) {
+		ryder.setCha(1);
+		skillPoints -= 1;
+	    }
+	    if (choice == 5) {
+		ryder.setIntel(1);
+		skillPoints -= 1;
+	    }
+	    if (choice == 6) {
+		ryder.setCon(1);
+		skillPoints -= 1;
+	    }
+	    s = "You have " + skillPoints + " left.\n";
+	    s += "1: Strength. It is currently at " + ryder.getStr() + ".\n";
+	    s += "2: Dexterity. It is currently at " + ryder.getDex() + ".\n";
+	    s += "3: Wisdom. It is currently at " + ryder.getWis() + ".\n";
+	    s += "4: Charisma. It is currently at " + ryder.getCha() + ".\n";
+	    s += "5: Intelligence. It is currently at " + ryder.getIntel() + ".\n";
+	    s += "6: Constitution. It is currently at " + ryder.getCon() + ".\n\n";
+	    s += "What would you like to spend a skill point on?\n";
+	    s += "Enter a number... ";
+	    System.out.print(s);	    
+	}
 	store();
 	ryder.printInv();
+	if (battle(1)) {
+	    System.out.println("Congrats on your first battle");
+	}
 	
     }//end newGame()
 
@@ -223,82 +280,95 @@ public class HighSchoolDungeon{
 	    }
 	    catch (IOException e) {
 		//System.out.println("here1");
-		System.out.println("I'm sorry, I didn't get that. Enter y for yes or n for no.");	    
+		System.out.println("I'm sorry, I didn't get that. Enter Y for yes or N for no.");	    
 	    }
 	}
     }
+
+    
    
     /*=============================================
-      boolean playTurn -- simulates a round of combat
+      boolean battle -- simulates a round of combat
       pre:  Warrior pat has been initialized
       post: Returns true if player wins (monster dies).
       Returns false if monster wins (player dies).
       =============================================*/
-    /*
-    public boolean playTurn() {
-	
+
+    //monster will range from 0 to x, representing the different kind of monsters one can battle
+    public boolean battle(int monster) {
+
+	String s;
        	int i = 1;
-	int d1, d2;
+	int c1, c2; //choices before attacking
+	int d1, d2; //damage dealt
+
+	//select the kind of monster smaug will be
+	if (monster == 0)
+	    {
+		smaug = new M_Bully();
+	    }
+	if (monster == 1)
+	    {
+		smaug = new M_TBully();
+	    }
+	if (monster == 2)
+	    {
+		smaug = new M_UnfinishedHomework();
+	    }
+
+	s = "You have encountered " + smaug.getName() + "\n";
+	//s += "What will you do?\n"; //implement later
+	//s += "1: Fight!\n";
+	//s += "2: Run away!\n";
+	//s += "3: Try something special...\n";
+	System.out.println(s);
 	
-	int difficulty=1;
-	
-	if ( Math.random() >= ( difficulty / 3.0 ) )
-	    System.out.println( "\nNothing to see here. Move along!" );
-	else {
-	    System.out.println( "\nLo, yonder monster approacheth!" );
 	    
-	    smaug = new Monster();
-	    
-	    while( smaug.isAlive() && pat.isAlive() ) {
+	    while( !smaug.isDead() && !ryder.isDead() ) {
 		
-		// Give user the option of using a special attack:
-		// If you land a hit, you incur greater damage,
-		// ...but if you get hit, you take more damage.
 		try {
-		    System.out.println( "\nDo you feel lucky?" );
-		    System.out.println( "\t1: Nay.\n\t2: Aye!" );
+		    System.out.println("You have " + ryder.getHP() + " health.");
+		    System.out.println(smaug.getName() + " has " + smaug.getHP() + " health.");			    
+		    System.out.println( "\nWhat would you like to do?\n");	    
+		    System.out.println( "\t1: Basic attack!\n\t2: <insert special attack>" );
 		    i = Integer.parseInt( in.readLine() );
 		}
 		catch ( IOException e ) { }
 		
 		if ( i == 2 )
-		    pat.specialize();
+		    d1 = ryder.basicAttack(smaug); //temporarily the same as basic attack
 		else
-		    pat.normalize();
+		    d1 = ryder.basicAttack(smaug);
 		
-		d1 = pat.attack( smaug );
-		d2 = smaug.attack( pat );
+		d2 = smaug.basicAttack(ryder );
 		
-		System.out.println( "\n" + pat.getName() + " dealt " + d1 +
+		System.out.println( "\n" + ryder.getName() + " dealt " + d1 +
 				    " points of damage.");
 		
-		System.out.println( "\n" + "Ye Olde Monster smacked " + pat.getName() +
+		System.out.println( "\n" + smaug.getName() + " attacked " + ryder.getName() +
 				    " for " + d2 + " points of damage.");
 	    }//end while
 	    
 	    //option 1: you & the monster perish
-	    if ( !smaug.isAlive() && !pat.isAlive() ) {
+	    if ( smaug.isDead() && !ryder.isDead() ) {
 		System.out.println( "'Twas an epic battle, to be sure... " + 
 				    "You cut ye olde monster down, but " +
 				    "with its dying breath ye olde monster. " +
-				    "laid a fatal blow upon thy skull." );
+				    "laid a fatal blow upon thy skull." ); //make sure to change later
 		return false;
 	    }
 	    //option 2: you slay the beast
-	    else if ( !smaug.isAlive() ) {
-		System.out.println( "HuzzaaH! Ye olde monster hath been slain!" );
+	    else if ( smaug.isDead() ) {
+		System.out.println( "HuzzaaH! Ye olde monster hath been slain!" ); //make sure to change later
 		return true;
 						}
 	    //option 3: the beast slays you
-	    else if ( !pat.isAlive() ) {
-		System.out.println( "Ye olde self hath expired. You got dead." );
+	    else if ( !ryder.isDead() ) {
+		System.out.println( "Ye olde self hath expired. You got dead." ); //make sure to change later
 		return false;
 	    }
-	}//end else
-	
-	return true;
-    }//end playTurn()
-    */
+	    return true;
+    }
 
     
     public static void main(String[] args) {      	

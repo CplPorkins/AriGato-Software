@@ -1,12 +1,12 @@
 public class Jock extends Character{
 
     public Jock(String n){
-	maxHP= 20;
-	maxMP= 5;
-	HP= maxHP;
-	MP= maxHP;
+	maxHP = 20;
+	maxMP = 5;
+	HP = maxHP;
+	MP = maxHP;
 	att= 15;
-	def= 10;
+	def= 15;
 	str= 15;
 	dex= 10;
 	wis= 5;
@@ -32,8 +32,13 @@ public class Jock extends Character{
 	}
     }
 
-    void performAttack(Monster M){
-	M.setHP((int)(((lev*(att+str))/2)-M.getDef()-(M.getCon()/2)));
+    //returns the damage dealt
+    int basicAttack(Character c)
+    {
+	int damage;
+	damage = (int)(Math.random() * (att - c.getDef()));
+	c.setHP(-damage);
+	return damage;
     }
 }
 

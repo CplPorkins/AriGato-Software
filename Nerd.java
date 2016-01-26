@@ -1,11 +1,11 @@
 public class Nerd extends Character{
     
     public Nerd(String n){
-	maxHP= 10;
-	maxMP= 20;
+	maxHP = 10;
+	maxMP = 20;
 	HP= maxHP;
 	MP= maxMP;
-	att= 5;
+	att= 10;
 	def= 5;
 	str= 5;
 	dex= 10;
@@ -32,8 +32,13 @@ public class Nerd extends Character{
 	}
     }
 
-    void performAttack(Monster M){
-	M.setHP((int)(((lev*(att+str))/2)-M.getDef()-(M.getCon()/2)));
+    //returns the damage dealt
+    int basicAttack(Character c)
+    {
+	int damage;
+	damage = (int)(Math.random() * (att - c.getDef()));
+	c.setHP(-damage);
+	return damage;
     }
 }
 

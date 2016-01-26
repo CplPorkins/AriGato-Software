@@ -1,10 +1,10 @@
 public class Prep extends Character{
 
     public Prep(String n){
-	maxHP= 15;
-	maxMP= 10;
-	HP= maxHP;
-	MP= maxMP;
+	maxHP = 15;
+	maxMP = 10;
+	HP = maxHP;
+	MP = maxMP;
 	att= 10;
 	def= 10;
 	str= 10;
@@ -32,8 +32,13 @@ public class Prep extends Character{
 	}
     }
 
-    void performAttack(Monster M){
-	M.setHP((int)(((lev*(att+str))/2)-M.getDef()-(M.getCon()/2)));
+    //returns the damage dealt
+    int basicAttack(Character c)
+    {
+	int damage;
+	damage = (int)(Math.random() * (att - c.getDef()));
+	c.setHP(-damage);
+	return damage;
     }
 }
 
