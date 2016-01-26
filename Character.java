@@ -48,6 +48,7 @@ public abstract class Character{
     public void setmaxMP(int mana) {maxMP = mana;}
     public void setHP(int health) {HP += health;}
     public void setMP(int mana) {MP += mana;}
+    public void setXP(int exp) {XP += exp;}
     public void setLev(int level) {lev += level;}
     public void setAtt(int attack) {att += attack;}
     public void setDef(int defense) {def += defense;}
@@ -71,6 +72,25 @@ public abstract class Character{
     }
     
     public boolean isDead(){return HP<=0;};
+
+    public void levelUp(){
+	System.out.println("Congratulations!");
+	System.out.println("You have leveled up!");
+	System.out.println("You are now Level " + getLev());
+	System.out.println("All your stats have been increased by 5!");
+	setLev(1);
+	setXP(-50);
+	setmaxHP(getmaxHP() + 5);
+	setmaxMP(getmaxMP() + 5);
+	setAtt(5);
+	setDef(5);
+	setStr(5);
+	setDex(5);
+	setWis(5);
+	setCha(5);
+	setIntel(5);
+	setCon(5);	
+    } 
 
     public void addHPPotion()
     {
@@ -126,7 +146,7 @@ public abstract class Character{
 	s = "Name: " + getName() + "\n";
 	s += "HP: " + getHP() + "\n";
 	s += "MP: " + getMP() + "\n";
-	s += "XP: " + getXP() + "\n";
+	s += "XP: " + getXP() + "/50" +  "\n";
 	s += "Level: " + getLev() + "\n\n";
 	s += "Attack: " + getAtt() + "\n";
 	s += "Defense: " + getDef() + "\n";
@@ -173,6 +193,6 @@ public abstract class Character{
     //abstract void useItem(Item x);
     //abstract void levelUp();
     //abstract void pickUp();
-    String specialAttack(Character c){return "";}
+    int specialAttack(Character c){return 0;}
     
 }

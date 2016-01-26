@@ -373,10 +373,16 @@ public class HighSchoolDungeon{
 	    System.out.println(s);
 	    //random enemy from 0 to 2
 	    battle(0 + (int)(Math.random() * ((2 - 0) + 1)));
-	    encounter += 1
+	    encounter += 1;
 	}
-	
-	
+
+	s = "\n\n";
+	s += "You can see the base of the next set of stairs that'll take you deeper into the dungeon.\n";
+	s += "You're so close to finishing your first year at Save-a-saint...\n";
+	s += "...But there's one thing blocking your way...\n";
+	s += "It's none other than that Impossible Final that butchers freshmen!\n\n";
+	System.out.println(s + "\n");
+	battle(3);
     }
 
     public void sophomore() {
@@ -498,7 +504,6 @@ public class HighSchoolDungeon{
 	String s;
 	String disp;
        	int i = 1;
-	int c1, c2; //choices before attacking
 	int d1, d2; //damage dealt
 
 	//select the kind of monster smaug will be
@@ -516,7 +521,7 @@ public class HighSchoolDungeon{
 	    }
 	if (monster == 3)
 	    {
-		smaug = new M_ImpossibleTest();
+		smaug = new M_ImpossibleFinal();
 	    }
 	if (monster == 4)
 	    {
@@ -534,79 +539,75 @@ public class HighSchoolDungeon{
 	s = "You have encountered " + smaug.getName() + "\n";
 
 	System.out.println(s);
-	
-	    
 	    while( !smaug.isDead() && !ryder.isDead() ) {
-		
-		try {
-		    System.out.println("You have " + ryder.getHP() + " health.");
-		    System.out.println(smaug.getName() + " has " + smaug.getHP() + " health.");			    
-		    System.out.println( "\nWhat would you like to do?\n");	    
-		    System.out.println( "\t1: Basic attack!\n\t2: <insert special attack>" );
-		    i = Integer.parseInt( in.readLine() );
-		}
-		catch ( IOException e ) { }
-		
-		if ( i == 2 ){
-		    if (ryder.getMP()>=5){
-			d1 = Integer.parseInt((ryder.specialAttack(smaug)).substring(0,2)); //temporarily the same as basic attack
-			disp = ryder.specialAttack(smaug).substring(2,(ryder.specialAttack(smaug)).length());
-			ryder.specialAttack(smaug);
+
+		    try {
+			System.out.println("You have " + ryder.getHP() + " health.");
+			System.out.println("You have " + ryder.getMP() + " mana.");		    
+			System.out.println(smaug.getName() + " has " + smaug.getHP() + " health.");			    
+			System.out.println( "\nWhat would you like to do?\n");	    
+			System.out.println( "\t1: Basic attack!\n\t2: Secret technique!" );
+			i = Integer.parseInt( in.readLine() );
 		    }
+		    catch ( IOException e ) { }
+		    
+		    if ( i == 2 ){
+			if (ryder.getMP()>=5){
+			    d1 = ryder.specialAttack(smaug);
+			    System.out.println( "\n" + ryder.getName() + " dealt " + d1 +
+					    " points of damage.");			    
+			}
+			else{
+			    System.out.println("You don't have enough MP to perform a special attack. (You have "+ryder.getMP()+" MP.)\nTry the basic attack.");
+			}
+		    }
+		    
 		    else{
-			System.out.println("You don't have enough MP to perform a special attack. (You have "+ryder.getMP()+" MP.)\nTry the basic attack.");
+			d1 = ryder.basicAttack(smaug);
+			
+			d2 = smaug.basicAttack(ryder );
+			
+			System.out.println( "\n" + ryder.getName() + " dealt " + d1 +
+					    " points of damage.");
+			
+			System.out.println( smaug.getName() + " attacked " + ryder.getName() +
+					    " for " + d2 + " points of damage.");
 		    }
-		}
-		
-		else{
-		    d1 = ryder.basicAttack(smaug);
-		
-		d2 = smaug.basicAttack(ryder );
-		
-		System.out.println( "\n" + ryder.getName() + " dealt " + d1 +
-				    " points of damage.");
-		
-		System.out.println( "\n" + smaug.getName() + " attacked " + ryder.getName() +
-				    " for " + d2 + " points of damage.");
-		}
 	    }//end while
 	    
-	    //option 1: you & the monster perish
 	    if ( smaug.isDead() && ryder.isDead() ) {
-		System.out.println( "'Twas an epic battle, to be sure... " + 
-				    "You cut ye olde monster down, but " +
-				    "with its dying breath ye olde monster. " +
-				    "laid a fatal blow upon thy skull." ); //make sure to change later
+		System.out.println("You have failed to graduate. GAME OVER.");
+		System.exit(0);
 		return false;
 	    }
-	    //option 2: you slay the beast
 	    else if ( smaug.isDead() ) {
-		System.out.println( "HuzzaaH! Ye olde monster hath been slain!" ); //make sure to change later
+		System.out.println( "You got 'em!" );
+		ryder.setXP(smaug.getHP());
+		s = "You've gained " + smaug.getHP() + " XP from this battle.";
+		if (ryder.getXP() >= 50) {
+		    ryder.levelUp();
+		}
+		ryder.setCash(smaug.getCash());
+		s += "You have gained " + smaug.getCash() + " cash from this battle.";
+		System.out.print(s);
 		return true;
 						}
-	    //option 3: the beast slays you
 	    else if ( !ryder.isDead() ) {
-		System.out.println( "Ye olde self hath expired. You got dead." ); //make sure to change later
+		System.out.println( "You have failed to graduate. GAME OVER." );
+		System.exit(0);
 		return false;
 	    }
 	    return true;
     }
+
 
     
     public static void main(String[] args) {      	
 	//loading...
 	HighSchoolDungeon game = new HighSchoolDungeon();
 	
-	int encounters = 0;
-	/*
-	while( encounters < MAX_ENCOUNTERS ) {
-	    if ( !game.playTurn() )
-		break;
-	    encounters++;
-	    System.out.println();
-	}
-	*/
-	System.out.println( "You graduated!" );
+	String s;
+	System.out.println( "You graduated!");
     }    
 }
 

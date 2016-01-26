@@ -1,7 +1,7 @@
 public class M_Bully extends Character {
     public M_Bully()
     {
-	maxHP = 5;
+	maxHP = 10;
 	maxMP= 5;
 	HP = maxHP;
 	MP = maxHP;
