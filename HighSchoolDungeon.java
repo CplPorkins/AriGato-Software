@@ -188,7 +188,7 @@ public class HighSchoolDungeon{
 		choice =  Integer.parseInt( in.readLine() );
 	    }
 	    catch ( IOException | NumberFormatException e ) {
-		System.out.println("Thats not right\n");
+		System.out.println("Thats not right. I suppose you don't want to use any more skill points.\n");
 		break;
 		}
 	    if (choice == 1) {
@@ -293,7 +293,7 @@ public class HighSchoolDungeon{
 	}
 	catch ( IOException | NumberFormatException  e ) {
 	    System.out.println("That's not right\n");
-	    System.out.println("Try again.\n");
+	    System.out.println("You decided to look for the next floor.\n");
 	}
 
 	if (decision == 2) {

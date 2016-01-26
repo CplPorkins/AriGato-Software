@@ -23,14 +23,6 @@ public class Nerd extends Character{
     public String toString(){
 	return name+" the Nerd";
     }
-    
-    void levelUp(){
-	if (XP>=100){
-	    lev+=1;
-	    XP-=100;
-	    //INCREASE STATS
-	}
-    }
 
     //returns the damage dealt
     int basicAttack(Character c)

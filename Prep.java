@@ -23,14 +23,7 @@ public class Prep extends Character{
     public String toString(){
 	return name+" the Prep";
     }
-    
-    void levelUp(){
-	if (XP>=100){
-	    lev+=1;
-	    XP-=100;
-	    //INCREASE STATS
-	}
-    }
+
 
     //returns the damage dealt
     int basicAttack(Character c)

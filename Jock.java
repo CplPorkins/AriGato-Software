@@ -24,14 +24,6 @@ public class Jock extends Character{
 	return name+" the Jock";
     }
 
-    void levelUp(){
-	if (XP>=100){
-	    lev+=1;
-	    XP-=100;
-	    //INCREASE STATS
-	}
-    }
-
     //returns the damage dealt
     int basicAttack(Character c)
     {

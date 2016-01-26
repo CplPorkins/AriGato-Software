@@ -176,7 +176,7 @@ public abstract class Character{
 	    return 1;
 	}
 	int damage;
-	damage = (int)(Math.random() * (att*(0.5*str) - c.getDef()));
+	damage = (int)2+(Math.random() * (att*(0.5*str) - c.getDef()));
 	c.setHP(-damage);
 	return damage;
     }    
