@@ -144,5 +144,6 @@ public abstract class Character{
     //abstract void useItem(Item x);
     //abstract void levelUp();
     //abstract void pickUp();
+    String specialAttack(Character c){return "";}
     
 }

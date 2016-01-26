@@ -296,6 +296,7 @@ public class HighSchoolDungeon{
     public boolean battle(int monster) {
 
 	String s;
+	String disp;
        	int i = 1;
 	int c1, c2; //choices before attacking
 	int d1, d2; //damage dealt
@@ -333,8 +334,11 @@ public class HighSchoolDungeon{
 		}
 		catch ( IOException e ) { }
 		
-		if ( i == 2 )
-		    d1 = ryder.basicAttack(smaug); //temporarily the same as basic attack
+		if ( i == 2 ){
+		    d1 = Integer.parseInt((ryder.specialAttack(smaug)).substring(0,2)); //temporarily the same as basic attack
+		    disp = ryder.specialAttack(smaug).substring(2,(ryder.specialAttack(smaug)).length());
+		}
+		
 		else
 		    d1 = ryder.basicAttack(smaug);
 		
