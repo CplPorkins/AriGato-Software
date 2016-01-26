@@ -82,12 +82,23 @@ public abstract class Character{
     {
 	MPPotion y = new MPPotion();
 	inventory.get(1).add(y);
-    }    
+    }
+
+    public void removeHPPotion()
+    {
+	inventory.get(0).remove(0);
+    }
+
+    public void removeMPPotion()
+    {
+	inventory.get(1).remove(0);
+    }        
 
     public void printInv()
     {
 	String s= "";
 	s += "Your inventory\n";
+	s += "Cash: " + getCash() + "\n";
 	s += "HP Potions x " + inventory.get(0).size() + "\n";
 	s += "MP Potions x " + inventory.get(1).size() + "\n";
 
@@ -108,6 +119,24 @@ public abstract class Character{
 		s=s.substring(0,s.length()-1);
 	    }
 	System.out.println(s);	
+    }
+
+    public void printStatus() {
+	String s;
+	s = "Name: " + getName() + "\n";
+	s += "HP: " + getHP() + "\n";
+	s += "MP: " + getMP() + "\n";
+	s += "XP: " + getXP() + "\n";
+	s += "Level: " + getLev() + "\n\n";
+	s += "Attack: " + getAtt() + "\n";
+	s += "Defense: " + getDef() + "\n";
+	s += "Strength: " + getStr() + "\n";
+	s += "Dexterity: " + getDex() + "\n";
+	s += "Wisdom: " + getWis() + "\n";
+	s += "Charisma: " + getCha() + "\n";
+	s += "Intelligence: " + getIntel() + "\n";
+	s += "Constitution: " + getCon() + "\n";
+	System.out.println(s);
     }
 
     //returns the damage dealt

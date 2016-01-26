@@ -282,16 +282,112 @@ public class HighSchoolDungeon{
 	}	
 	//first store encounter
 	store();
-	
-	ryder.printInv();
-	if (battle(1)) {
-	    System.out.println("Congrats on your first battle");
-	}
-	
+	freshman();
+	store();
+	sophomore();
+	store();
+	junior();
+	store();
+	senior();
     }//end newGame()
 
+    public void choice() {
+	String s;
+	int decision = 0;
+	s = "What would you like to do?\n\n";
+	s += "1: Look for the next floor.\n";
+	s += "2: Check your status.\n";
+	s += "3: Check your inventory.\n";
+	s += "4: Use an item.\n\n";
+
+	s += "Enter a number...\n";
+	System.out.println(s);
+	try {
+	    decision = Integer.parseInt(in.readLine());
+	}
+	catch ( IOException | NumberFormatException  e ) {
+	    System.out.println("That's not right\n");
+	    System.out.println("Try again.\n");
+	}
+
+	if (decision == 2) {
+	    ryder.printStatus();
+	    System.out.println("\n\n");
+	    choice();	    
+	}
+
+	if (decision == 3) {
+	    ryder.printInv();
+	    System.out.println("\n\n");
+	    choice();
+	}
+
+	if (decision == 4) {
+	    int itemToUse = 0;
+	    s = "Which item would you like to use?\n";
+	    s += "1: An HP Potion which recovers 20% of my HP\n";
+	    s += "2: An MP Potion which recovers 20% of my MP\n\n";
+	    s += "Enter a number: ";
+	    System.out.println(s);
+	    try {
+		itemToUse = Integer.parseInt(in.readLine());
+	    }
+	    catch ( IOException | NumberFormatException  e ) {
+		System.out.println("That's not right\n");
+		System.out.println("Try again.\n");
+	    }
+
+	    if (itemToUse == 1) {
+		//if person has potions
+		if (ryder.inventory.get(0).size() != 0) {
+			ryder.setHP(ryder.getHP() / 5);
+			if (ryder.getHP() > ryder.getmaxHP()) {
+			    ryder.setHP(ryder.getmaxHP() - ryder.getHP());
+			}
+			ryder.removeHPPotion();
+			System.out.println("You now have " +  ryder.getHP() + " HP.\n");
+		}
+		//if person doesn't have potions
+		else {System.out.println("You don't have this potion.\n");}
+	    }
+
+	    if (itemToUse == 2) {
+		//if person has potions
+		if (ryder.inventory.get(1).size() != 0) {
+			ryder.setMP(ryder.getMP() / 5);
+			if (ryder.getMP() > ryder.getmaxMP()) {
+			    ryder.setMP(ryder.getmaxMP() - ryder.getMP());
+			}
+			ryder.removeMPPotion();			
+			System.out.println("You now have " +  ryder.getMP() + " MP.\n");
+		}
+		//if person doesn't have potions
+		else {System.out.println("You don't have this potion.\n");}
+	    }
+	    choice();
+	}//end decision 4
+
+    }
+
     public void freshman() {
-	
+	String s;
+	int c;
+	s = "You descend the steps into the first 'year' of Save-a-saint: freshman year.\n";
+	s += "You're filled with hope and promise for your upcoming adventure!\n";
+	s += "You carry your ridiculously large backpack and get lost often in the labyrinth that is this floor.\n\n";
+	s += "You don't realize what's about to come your way...\n";
+	s += "You find yourself at a crossroads.\n\n";
+	System.out.println(s);
+	choice();
+    }
+
+    public void sophomore() {
+    }
+
+    public void junior() {
+    }
+
+    public void senior() {
     }
 
     
