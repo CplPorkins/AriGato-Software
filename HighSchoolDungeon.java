@@ -156,68 +156,65 @@ public class HighSchoolDungeon{
 		if (!((purchase==1)||(purchase==2)||(purchase==3))){
 		    throw win;
 		}
+		//if want to buy HP Potion
+		if (purchase==1){
+		    if (ryder.getCash() >= 100)
+			{
+			    System.out.println("You bought a HP Potion! Here you go.");
+			    ryder.setCash(-100);
+			    System.out.print("Your cash reserve is now "); System.out.println(ryder.getCash());
+			    ryder.addHPPotion();
+			    store();
+			}
+		    else
+			{
+			    System.out.println("You don't have enough money, you twerp. You trying to chisel me?\n");
+			    store();
+			}
+		}
+		//if want to buy MP Potion
+		if (purchase==2){
+		    if (ryder.getCash() >= 100)
+			{
+			    System.out.println("You bought a MP Potion! Here you go.");
+			    ryder.setCash(-100);
+			    System.out.print("Your cash reserve is now "); System.out.println(ryder.getCash());			
+			    ryder.addMPPotion();
+			    store();			
+			}
+		    else
+			{
+			    System.out.println("You don't have enough money, you twerp. You trying to chisel me?\n");
+			    store();
+			}
+		}
+		//if want to leave
+		if (purchase==3) {
+		    exitStore();
+		}
+		
 	    }
 	    catch ( IOException | NumberFormatException e ) {
 		System.out.println("Thats not right\n");
-		//store();
+		store();
 		break;
 		}
-	    //if want to buy HP Potion
-	    if (purchase==1){
-		if (ryder.getCash() >= 100)
-		    {
-			System.out.println("You bought a HP Potion! Here you go.");
-			ryder.setCash(-100);
-			System.out.print("Your cash reserve is now "); System.out.println(ryder.getCash());
-			ryder.addHPPotion();
-			store();
-		    }
-		else
-		    {
-			System.out.println("You don't have enough money, you twerp. You trying to chisel me?\n");
-			store();
-		    }
-	    }
-	    //if want to buy MP Potion
-	    if (purchase==2){
-		if (ryder.getCash() >= 100)
-		    {
-			System.out.println("You bought a MP Potion! Here you go.");
-			ryder.setCash(-100);
-			System.out.print("Your cash reserve is now "); System.out.println(ryder.getCash());			
-			ryder.addMPPotion();
-			store();			
-		    }
-		else
-		    {
-			System.out.println("You don't have enough money, you twerp. You trying to chisel me?\n");
-			store();
-		    }
-	    }
-	    //if want to leave
-	    if (purchase==3) {
-		exitStore();
-	    }
 	}
     } //end store()
 
     public void exitStore(){
 	System.out.println("Are you sure you want to exit the store? Y/N");
 	String exit="";
-	
 	while ((exit!="n")&&(exit!="y")&&(exit!="N")&&(exit!="Y")){
 	    try {
 		exit = in.readLine();
 		if (!(exit.equals("n")||exit.equals("N")||exit.equals("y")||exit.equals("Y"))){
-		    exit="";
 		    throw win;
 		}
 		if (exit.equals("N")|| exit.equals("n")){
-		    exit="";
 		    store();
 		}
 		if (exit.equals("y") || exit.equals("Y")){
-		    exit="";
 		    break;
 		}
 	    }
@@ -225,6 +222,7 @@ public class HighSchoolDungeon{
 		//System.out.println("here1");
 		System.out.println("I'm sorry, I didn't get that. Enter y for yes or n for no.");	    
 	    }
+	    break;
 	}
     }
    
