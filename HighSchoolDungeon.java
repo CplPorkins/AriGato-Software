@@ -17,6 +17,8 @@ public class HighSchoolDungeon{
     private InputStreamReader isr;
     private BufferedReader in;
     private IOException win= new IOException();
+    
+    
 
     // ~~~~~~~~~~ DEFAULT CONSTRUCTOR ~~~~~~~~~~~
     public HighSchoolDungeon() {
@@ -760,6 +762,9 @@ public class HighSchoolDungeon{
     public static void main(String[] args) {      	
 	//loading...
 	HighSchoolDungeon game = new HighSchoolDungeon();
+	if (!game.ryder.isDead()){
+	    System.out.println("You won!! \nYou made it through Save-a-saint High School!! Congratulations!!");
+	}
     }    
 }
 
