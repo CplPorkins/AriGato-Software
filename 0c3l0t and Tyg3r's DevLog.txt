@@ -1,35 +1,37 @@
 1/14 
-Character added (incomplete)
-Currency Issue
+Character added (incomplete, attributs added).
+Currency Issue.
 to-do.txt added.
 
 1/15
-Playable Character classes added (incomplete)
+Playable Character classes added (incomplete).
 
 1/19
-Item added
-Worked on driver (HSD.java) // halfway done to something runnable
-Need to relearn user input related stuff
-Playable Character constructors added
+Item added.
+Worked on driver (HSD.java) // halfway done to something runnable.
+Need to relearn user input related stuff.
+Playable Character constructors added.
 
 1/20
-Item modified
-Potion classes added
-Basic version of driver class written
+Item modified.
+Potion classes added.
+Basic version of driver class written.
+
+1/21
+Potion classes modified.
+Attack and Use methods added.
+Monster class added.
 
 1/23
-Things completed since 1/20:
-We created ShopOwner.java and better universalized all the Character/Item requirements onto the subclasses
+Shop class added (later scrapped).
+More battle engine diagrams.
+Inventory structure-discussion and began implementation.
+Inventory will be a 2D array or an ArrayList of ArrayLists.
 
-Things completed today:
-Discussion on inventory structure
-More diagram work on battle program
-implemented 2D array structured inventory
-added printInv
+1/24
+toString() added to playable Characters.
+Store methods to replace Shop are functional.
 
-Goals for today:
-MAKE SURE TO COMPLETE INVENTORY AND BATTLE PROGRAM
-overwrite .compareTo in Item
-Or write entirely new function that compares stuff?
-maybe just extend Comparable for Item?
-
+1/25
+Improve attack methods-no negative damage.
+Add specialAttack method.
