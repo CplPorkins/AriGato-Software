@@ -290,7 +290,7 @@ public class HighSchoolDungeon{
 	
     }//end newGame()
 
-    public void firstYear() {
+    public void freshman() {
 	
     }
 
