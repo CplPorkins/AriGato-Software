@@ -388,7 +388,7 @@ public class HighSchoolDungeon{
 	s += "Standing over its bloodied corpse, you notice a glimmer in the gore.\n\n";
 	s += "You pick up a Golden Muji Pen. It provides you with additional attack power.\n\n";
 	Weapon muji = new Weapon("Golden Muji Pen");
-	addWeapon(muji); ryder.setAtt(3); //+3 b/c of pen
+	ryder.addWeapon(muji); ryder.setAtt(3); //+3 b/c of pen
 	s += "With pride of your freshman accomplishments in your heart, you march bravely forward...\n";
 	s += "...into sophomore year.\n\n";
 	System.out.println(s);
@@ -427,7 +427,7 @@ public class HighSchoolDungeon{
 	s += "By the scene of the battle, you find a pair of galoshes that must have been left behind by a fallen comrade.\n";
 	s += "You take them and you feel more confident in your ability to hold off enemy attacks.\n";
 	Armor galoshes = new Armor("Galoshes");
-	addArmor(galoshes); ryder.setDef(3);
+	ryder.addArmor(galoshes); ryder.setDef(3);
 	s += "With sophomore year behind you, you hesitate because you know what's next...\n";
 	s += "The worst year of them all...\n";
 	s += "Junior year.\n\n";
@@ -448,7 +448,7 @@ public class HighSchoolDungeon{
 	while (encounter < 15) {
 	    choice();
 	    s = "\n\n";
-	    s += "Exploring sophomore year, you think you hear a rustling in the distance...\n";
+	    s += "Exploring junior year, you think you hear a rustling in the distance...\n";
 	    System.out.println(s);
 	    //random enemy from 0 to 2
 	    battle(0 + (int)(Math.random() * ((2 - 0) + 1)));
@@ -460,7 +460,7 @@ public class HighSchoolDungeon{
 	s += "You're so close. You're more than halfway there. Your feet feel like anchors as you drag them across the grimy floor.\n\n";
 	s += "The room suddenly darkens. He's here.\n";
 	s += "The author of all your pain. The man responsible for not canceling school on terrible snow days\n";
-	s += "You prepare yourself for the fight of your life.\n"
+	s += "You prepare yourself for the fight of your life.\n";
 	System.out.println(s + "\n");
 	battle(4);
 	s = "\n";
@@ -469,13 +469,80 @@ public class HighSchoolDungeon{
 	s += "Junior year is over...\n\n\n";
 	s += "You take the Mayor's hat in victory. Before you even put it on, you already feel stronger.\n\n";
 	Armor hat = new Armor("The Mayor's Hat");
-	addArmor(hat); ryder.setStr(3);
+	ryder.addArmor(hat); ryder.setStr(3);
 	s += "You're near the end of the journey. You can almost taste the freedom from this barren, desolate land.\n";
 	s += "You just have one more year to go: senior year.\n\n";
 	System.out.println(s);	
     }
 
     public void senior() {
+	int line = 0;
+	int encounter = 0;
+	String s;
+	int c;
+	s = "Mentally, physically exhausted, but you can see the light at the end of the tunnel.\n";
+	s += "You're nearly through with the entire ordeal.\n";
+	s += "Just a few more battles to fight and you'll be free.\n\n";
+	s += "...or will you? Will all this be worth it?\n";
+	s += "You find yourself at a crossroads.\n\n";
+	System.out.println(s);
+
+	while (encounter < 20) {
+	    choice();
+	    s = "\n\n";
+	    s += "Exploring senior year, you think you hear a rustling in the distance...\n";
+	    System.out.println(s);
+	    //random enemy from 0 to 2
+	    battle(0 + (int)(Math.random() * ((2 - 0) + 1)));
+	    encounter += 1;
+	}
+
+	s = "\n\n";
+	s += "You see the exit sign. You see the toga and hat. It's mere feet away.\n";
+	s += "Four hard years and it's finally within grasp. You don't even care about your future as an adventurer anymore\n\n";
+	s += "You just want to get out.\n\n.";
+	s += "A figure blocks your exit.\n\n";
+	s += "It's Mr. Brown, the man who taught you everything you know!\n";
+	s += "You're incredulous. What is he doing here?\n";
+	s += "You approach your mentor. He speaks before you do.\n\n";
+	s += "'Ah, it's good to see you, " + ryder.getName() + ". I have an offer for you, if you're interested. You should be'\n";
+	s += "Dumbstruck at your mentor's sudden apearance, Mr. Brown continues, 'I created Save-a-saint High. To breed a stronger student'\n";
+	s += "You've lost it. Your mentor created this monstrosity?\n";
+	s += "'Few have made it to the end of the dungeon and I could use some help. You could be my apprentice with all the benefits that entails. Fame? Power? Glory? All yours.'\n";
+	s += "'What do you say?'\n\n";
+	s += "1: I will never join you!\n";
+	s += "2: Very well then.\n";
+	s += "Make your choice... ";
+	System.out.println(s);
+
+	try {
+	    line = Integer.parseInt(in.readLine());
+	}
+	catch ( IOException | NumberFormatException  e ) {
+	    System.out.println("That's not right");
+	    System.out.println("Try again.");
+	}
+
+	if (line == 1) {
+	    s = "I see. You have elected the way of pain!\n\n";
+	    System.out.println(s);
+	    battle(6);
+	    s = "\n\nIt's all over. You've defeated the architect of Save-a-saint High.\n";
+	    s += "You have ended generations of torment and you have broken the cycle of violence.\n";
+	    s += "Without the glue holding the school together, kids will be free to live their lives in peace once again.\n\n";
+	    s += "The exit sign in front of you beckons. The rest of the world and most importantly ... your graduation await.\n\n\n";
+	    s += "GAME OVER. Thanks for playing!\n";
+	    System.out.println(s);
+	}
+	
+	else {
+	    s = "'You have chosen wisely. Come now ... my apprentice. You have graduated.'\n\n";
+	    s += "Though you corrupted your soul in the process, you become extremely powerful and wealthy under Mr. Brown's tutelage.\n";
+	    s += "Soon, you take control of the entire school itself; overseeing the torment of a whole new generation of students.\n\n";
+	    s += "The world is in your hands and you've got the time... What's next to conquer?\n\n\n";
+	    s += "GAME OVER. Thanks for playing!\n";
+	    System.out.println(s);
+	}
     }
 
     
@@ -691,7 +758,7 @@ public class HighSchoolDungeon{
 	HighSchoolDungeon game = new HighSchoolDungeon();
 	
 	String s;
-	System.out.println( "You graduated!");
+	System.out.println( "\n\nHave another go?");
     }    
 }
 
