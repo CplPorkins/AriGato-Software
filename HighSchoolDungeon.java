@@ -57,20 +57,6 @@ public class HighSchoolDungeon{
 		    System.out.println("Enter 1 to continue...");
 		}
 	}
-	
-	/* Will implement if time allows 
-	s += "\nChoose your difficulty: \n";
-	s += "\t1: Easy\n";
-	s += "\t2: Not so easy\n";
-	s += "\t3: Beowulf hath nothing on me. Bring it on.\n";
-	s += "Selection: ";
-	System.out.print( s );
-
-	try { // IMPORTANT
-	    difficulty = Integer.parseInt( in.readLine() );
-	}
-	catch ( IOException e ) { }
-	*/
 
 	int line = 0;
 	s = "\n\nOn a casual, nondescript March day, you received a letter in the mail.\n\n";
@@ -370,6 +356,7 @@ public class HighSchoolDungeon{
     }
 
     public void freshman() {
+	int encounter = 0;
 	String s;
 	int c;
 	s = "You descend the steps into the first 'year' of Save-a-saint: freshman year.\n";
@@ -378,7 +365,18 @@ public class HighSchoolDungeon{
 	s += "You don't realize what's about to come your way...\n";
 	s += "You find yourself at a crossroads.\n\n";
 	System.out.println(s);
-	choice();
+
+	while (encounter < 3) {
+	    choice();
+	    s = "\n\n";
+	    s += "Exploring freshman year, you think you hear a rustling in the distance...\n";
+	    System.out.println(s);
+	    //random enemy from 0 to 2
+	    battle(0 + (int)(Math.random() * ((2 - 0) + 1)));
+	    encounter += 1
+	}
+	
+	
     }
 
     public void sophomore() {
@@ -516,12 +514,25 @@ public class HighSchoolDungeon{
 	    {
 		smaug = new M_UnfinishedHomework();
 	    }
+	if (monster == 3)
+	    {
+		smaug = new M_ImpossibleTest();
+	    }
+	if (monster == 4)
+	    {
+		smaug = new M_MayorWillDeLazio();
+	    }
+	if (monster == 5)
+	    {
+		smaug = new M_Snowstorm();
+	    }
+	if (monster == 6)
+	    {
+		smaug = new M_MrBrown();
+	    }	
 
 	s = "You have encountered " + smaug.getName() + "\n";
-	//s += "What will you do?\n"; //implement later
-	//s += "1: Fight!\n";
-	//s += "2: Run away!\n";
-	//s += "3: Try something special...\n";
+
 	System.out.println(s);
 	
 	    

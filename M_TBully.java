@@ -16,7 +16,7 @@ public class M_TBully extends Character {
 	lev = 1;
 	XP = 0;
 	name = "Tough Bully";
-	cash = 40;
+	cash = 60;
 	createShelves();	
     }
 

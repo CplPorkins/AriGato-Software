@@ -106,7 +106,7 @@ public abstract class Character{
 	s += "Weapons:\n";
 	for (int n = 0; n < inventory.get(2).size(); n++)
 	    {
-		s += inventory.get(2).get(n) + ", "; //find way to remove trailing comma lol, too tired rn
+		s += inventory.get(2).get(n) + ", ";
 		s=s.substring(0,s.length()-1);
 	    }
 	s += "\n";
@@ -115,7 +115,7 @@ public abstract class Character{
 	s += "Armor:" /*+ inventory.get(3).size()*/ + "\n";
 	for (int a = 0; a < inventory.get(3).size(); a++)
 	    {
-		s += inventory.get(3).get(a) + ", "; //find way to remove trailing comma lol, too tired rn
+		s += inventory.get(3).get(a) + ", ";
 		s=s.substring(0,s.length()-1);
 	    }
 	System.out.println(s);	
