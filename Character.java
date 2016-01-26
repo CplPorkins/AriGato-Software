@@ -113,6 +113,11 @@ public abstract class Character{
     //returns the damage dealt
     int basicAttack(Character c)
     {
+	int dmod =(int) (att*(0.5*str) - c.getDef());
+	if (dmod<=1){
+	    c.setHP(-1);
+	    return 1;
+	}
 	int damage;
 	damage = (int)(Math.random() * (att*(0.5*str) - c.getDef()));
 	c.setHP(-damage);

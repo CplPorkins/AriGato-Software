@@ -226,7 +226,7 @@ public class HighSchoolDungeon{
 		    else
 			{
 			    System.out.println("You don't have enough money, you twerp. You trying to chisel me?\n");
-			    store();
+			    exitStore();
 			}
 		}
 		//if want to buy MP Potion
@@ -242,7 +242,7 @@ public class HighSchoolDungeon{
 		    else
 			{
 			    System.out.println("You don't have enough money, you twerp. You trying to chisel me?\n");
-			    store();
+			    exitStore();
 			}
 		}
 		//if want to leave
@@ -348,7 +348,7 @@ public class HighSchoolDungeon{
 	    }//end while
 	    
 	    //option 1: you & the monster perish
-	    if ( smaug.isDead() && !ryder.isDead() ) {
+	    if ( smaug.isDead() && ryder.isDead() ) {
 		System.out.println( "'Twas an epic battle, to be sure... " + 
 				    "You cut ye olde monster down, but " +
 				    "with its dying breath ye olde monster. " +

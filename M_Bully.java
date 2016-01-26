@@ -24,9 +24,14 @@ public class M_Bully extends Character {
     int basicAttack(Character c)
     {
 	int damage;
-	damage = (int)(Math.random() * (att - c.getDef()));
+	int dmod =(int) (Math.random() * (att - c.getDef()));
+	if (dmod<=1){
+	    damage=1+(int)(Math.random()*c.getLev()+Math.random()*2);
+	}
+	else{
+	    damage = (int)(Math.random() * (att - c.getDef()));
+	}
 	c.setHP(-damage);
 	return damage;
     }
-    
 }
