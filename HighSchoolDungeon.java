@@ -110,15 +110,15 @@ public class HighSchoolDungeon{
 	s = "\nYou are: ";
 	
 	if (charType==1){
-	    Character ryder = new Jock(name);
+	    ryder = new Jock(name);
 	}
 
 	if (charType==2){
-	    Character ryder = new Nerd(name);
+	    ryder = new Nerd(name);
 	}
 
 	if (charType==3){
-	    Character ryder = new Prep(name);
+	    ryder = new Prep(name);
 	}
 
 	s+=ryder;
