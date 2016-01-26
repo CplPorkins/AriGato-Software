@@ -45,6 +45,7 @@ public class Jock extends Character{
 	int damage=10*getLev();
 	setMP(-5);
 	c.setAtt(-5);
+	c.setHP(-damage);
 	return damage+"You used LockerShove. "+c.getName()+"'s attack power decreased";
     }
 	

@@ -45,6 +45,7 @@ public class Nerd extends Character{
 	int damage=10*getLev();
 	setMP(-5);
 	setDef(-getDef());
+	c.setHP(-damage);
 	return damage+"You used ThrowPencils. "+c.getName()+"'s defense power has been obliterated.";
     }
 }

@@ -45,6 +45,7 @@ public class Prep extends Character{
 	int damage=10*getLev();
 	setMP(-5);
 	c.setStr(-c.getStr()+1);
+	c.setHP(-damage);
 	return damage+"You used Swagger. "+c.getName()+"'s strength has been reduced to 1.";
     }
 }

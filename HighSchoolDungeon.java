@@ -335,11 +335,17 @@ public class HighSchoolDungeon{
 		catch ( IOException e ) { }
 		
 		if ( i == 2 ){
-		    d1 = Integer.parseInt((ryder.specialAttack(smaug)).substring(0,2)); //temporarily the same as basic attack
-		    disp = ryder.specialAttack(smaug).substring(2,(ryder.specialAttack(smaug)).length());
+		    if (ryder.getMP()>=5){
+			d1 = Integer.parseInt((ryder.specialAttack(smaug)).substring(0,2)); //temporarily the same as basic attack
+			disp = ryder.specialAttack(smaug).substring(2,(ryder.specialAttack(smaug)).length());
+			ryder.specialAttack(smaug);
+		    }
+		    else{
+			System.out.println("You don't have enough MP to perform a special attack. (You have "+ryder.getMP()+" MP.)\nTry the basic attack.");
+		    }
 		}
 		
-		else
+		else{
 		    d1 = ryder.basicAttack(smaug);
 		
 		d2 = smaug.basicAttack(ryder );
@@ -349,6 +355,7 @@ public class HighSchoolDungeon{
 		
 		System.out.println( "\n" + smaug.getName() + " attacked " + ryder.getName() +
 				    " for " + d2 + " points of damage.");
+		}
 	    }//end while
 	    
 	    //option 1: you & the monster perish
