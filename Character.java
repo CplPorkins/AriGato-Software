@@ -152,7 +152,7 @@ public abstract class Character{
     public void printStatus() {
 	String s;
 	s = "Name: " + getName() + "\n";
-	s += "HP: " + getHP() + "\n";
+	s += "HP: " + getHP() + "/"+getmaxHP()+"\n";
 	s += "MP: " + getMP() + "\n";
 	s += "XP: " + getXP() + "/50" +  "\n";
 	s += "Level: " + getLev() + "\n\n";
@@ -176,7 +176,7 @@ public abstract class Character{
 	    return 1;
 	}
 	int damage;
-	damage = (int)2+(Math.random() * (att*(0.5*str) - c.getDef()));
+	damage = 2+(int)(Math.random() * (att*(0.5*str) - c.getDef()));
 	c.setHP(-damage);
 	return damage;
     }    

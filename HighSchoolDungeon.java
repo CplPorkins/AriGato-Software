@@ -179,7 +179,7 @@ public class HighSchoolDungeon{
 	s += "5: Intelligence. It is currently at " + ryder.getIntel() + ".\n";
 	s += "6: Constitution. It is currently at " + ryder.getCon() + ".\n\n";
 	s += "What would you like to spend a skill point on?\n";
-	s += "Enter a number... ";
+	s += "Enter a number... (enter a letter to exit)\n";
 	System.out.print(s);	
 
 	while (skillPoints != 0) {
@@ -188,7 +188,7 @@ public class HighSchoolDungeon{
 		choice =  Integer.parseInt( in.readLine() );
 	    }
 	    catch ( IOException | NumberFormatException e ) {
-		System.out.println("Thats not right. I suppose you don't want to use any more skill points.\n");
+		System.out.println("I suppose you don't want to use any more skill points.\n");
 		break;
 		}
 	    if (choice == 1) {
@@ -223,7 +223,7 @@ public class HighSchoolDungeon{
 	    s += "5: Intelligence. It is currently at " + ryder.getIntel() + ".\n";
 	    s += "6: Constitution. It is currently at " + ryder.getCon() + ".\n\n";
 	    s += "What would you like to spend a skill point on?\n";
-	    s += "Enter a number... ";
+	    s += "Enter a number... (enter a letter to exit)\n";
 	    System.out.print(s);	    
 	}
 
@@ -700,7 +700,9 @@ public class HighSchoolDungeon{
 			System.out.println( "\t1: Basic attack!\n\t2: Secret technique!" );
 			i = Integer.parseInt( in.readLine() );
 		    }
-		    catch ( IOException e ) { }
+		    catch (  IOException | NumberFormatException e ) {
+			System.out.println("That's not right. Try again.\n");
+		    }
 		    
 		    if ( i == 2 ){
 			if (ryder.getMP()>=5){
@@ -725,12 +727,19 @@ public class HighSchoolDungeon{
 					    " for " + d2 + " points of damage.");
 		    }
 	    }//end while
-	    
-	    if ( smaug.isDead() && ryder.isDead() ) {
-		System.out.println("You have failed to graduate. GAME OVER.");
+
+	    if ( ryder.isDead() ) {
+		System.out.println("\nYou have failed to graduate. GAME OVER.");
 		System.exit(0);
 		return false;
 	    }
+	
+	    else if ( smaug.isDead() && ryder.isDead() ) {
+		System.out.println("\nYou have failed to graduate. GAME OVER.");
+		System.exit(0);
+		return false;
+	    }
+
 	    else if ( smaug.isDead() ) {
 		System.out.println( "You got 'em!" );
 		ryder.setXP(smaug.getmaxHP());
@@ -742,11 +751,6 @@ public class HighSchoolDungeon{
 		s += "You have gained " + smaug.getCash() + " cash from this battle.\n\n";
 		System.out.print(s);
 		return true;
-						}
-	    else if ( !ryder.isDead() ) {
-		System.out.println( "You have failed to graduate. GAME OVER." );
-		System.exit(0);
-		return false;
 	    }
 	    return true;
     }
@@ -756,9 +760,6 @@ public class HighSchoolDungeon{
     public static void main(String[] args) {      	
 	//loading...
 	HighSchoolDungeon game = new HighSchoolDungeon();
-	
-	String s;
-	System.out.println( "\n\nHave another go?");
     }    
 }
 
